@@ -53,35 +53,35 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg
+CMAKE_SOURCE_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+CMAKE_BINARY_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg
 
 # Utility rule file for dro_hg__py.
 
 # Include any custom commands dependencies for this target.
-include /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/compiler_depend.make
+include /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/compiler_depend.make
 
 # Include the progress variables for this target.
-include /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/progress.make
+include /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/progress.make
 
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_c.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_cmd.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_state.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_cmd.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_state.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_cmd.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_state.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/__init__.py
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_cmd_s.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_state_s.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_cmd_s.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_state_s.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_cmd_s.c
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_state_s.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_c.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_cmd.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_state.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_cmd.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_state.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_cmd.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_state.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/__init__.py
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_cmd_s.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_state_s.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_cmd_s.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_arm_state_s.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_cmd_s.c
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py: rosidl_generator_py/dro_hg/msg/_leg_state_s.c
 
 rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py
@@ -194,8 +194,8 @@ rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ro
 rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/geometry_msgs/msg/VelocityStamped.idl
 rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/geometry_msgs/msg/Wrench.idl
 rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/geometry_msgs/msg/WrenchStamped.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
-	cd /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py && /usr/bin/python3 /opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
+	cd /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py && /usr/bin/python3 /opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
 
 rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c
@@ -242,10 +242,10 @@ rosidl_generator_py/dro_hg/msg/_leg_cmd_s.c: rosidl_generator_py/dro_hg/_dro_hg_
 rosidl_generator_py/dro_hg/msg/_leg_state_s.c: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dro_hg/msg/_leg_state_s.c
 
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/codegen:
-.PHONY : /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/codegen
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/codegen:
+.PHONY : /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/codegen
 
-dro_hg__py: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py
+dro_hg__py: /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py
 dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_c.c
 dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c
 dro_hg__py: rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c
@@ -262,18 +262,18 @@ dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_cmd.py
 dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_cmd_s.c
 dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_state.py
 dro_hg__py: rosidl_generator_py/dro_hg/msg/_motor_state_s.c
-dro_hg__py: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build.make
+dro_hg__py: /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build.make
 .PHONY : dro_hg__py
 
 # Rule to build all files generated by this target.
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build: dro_hg__py
-.PHONY : /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build: dro_hg__py
+.PHONY : /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build
 
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/clean:
-	cd /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py && $(CMAKE_COMMAND) -P CMakeFiles/dro_hg__py.dir/cmake_clean.cmake
-.PHONY : /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/clean
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/clean:
+	cd /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py && $(CMAKE_COMMAND) -P CMakeFiles/dro_hg__py.dir/cmake_clean.cmake
+.PHONY : /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/clean
 
-/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/depend:
-	cd /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg__py
-.PHONY : /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/depend
+/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/depend:
+	cd /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg__py
+.PHONY : /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/depend
 

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat
+CMAKE_SOURCE_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat
+CMAKE_BINARY_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/build/igh_ethercat
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat/CMakeFiles /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ros2_ws/build/igh_ethercat/CMakeFiles /home/p30039115276/ECS_TK_IGH/ros2_ws/build/igh_ethercat//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ros2_ws/build/igh_ethercat/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

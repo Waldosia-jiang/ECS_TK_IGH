@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg
+CMAKE_SOURCE_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+CMAKE_BINARY_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -402,7 +402,7 @@ dro_hg__py: cmake_check_build_system
 
 # fast build rule for target.
 dro_hg__py/fast:
-	$(MAKE) $(MAKESILENT) -f /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build.make /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build
+	$(MAKE) $(MAKESILENT) -f /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build.make /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/CMakeFiles/dro_hg__py.dir/build
 .PHONY : dro_hg__py/fast
 
 rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.o: rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o

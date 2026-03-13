@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg
+CMAKE_SOURCE_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+CMAKE_BINARY_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dro_hg__rosidl_typesupport_c.dir/depend.make
@@ -173,8 +173,8 @@ rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp: /opt/ros/humble/sha
 rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp: /opt/ros/humble/share/geometry_msgs/msg/VelocityStamped.idl
 rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp: /opt/ros/humble/share/geometry_msgs/msg/Wrench.idl
 rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp: /opt/ros/humble/share/geometry_msgs/msg/WrenchStamped.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C type support dispatch for ROS interfaces"
-	/usr/bin/python3 /opt/ros/humble/lib/rosidl_typesupport_c/rosidl_typesupport_c --generator-arguments-file /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c__arguments.json --typesupports rosidl_typesupport_fastrtps_c rosidl_typesupport_introspection_c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C type support dispatch for ROS interfaces"
+	/usr/bin/python3 /opt/ros/humble/lib/rosidl_typesupport_c/rosidl_typesupport_c --generator-arguments-file /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c__arguments.json --typesupports rosidl_typesupport_fastrtps_c rosidl_typesupport_introspection_c
 
 rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp: rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp
@@ -197,86 +197,86 @@ CMakeFiles/dro_hg__rosidl_typesupport_c.dir/codegen:
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o: rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.i
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.s
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o: rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.i
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.s
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o: rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.i
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_cmd__type_support.cpp.s
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o: rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.i
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/arm_state__type_support.cpp.s
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o: rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.i
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_cmd__type_support.cpp.s
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o: rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o -MF CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o.d -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp > CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.i
 
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp -o CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp.s
 
 # Object files for target dro_hg__rosidl_typesupport_c
 dro_hg__rosidl_typesupport_c_OBJECTS = \
@@ -310,7 +310,7 @@ libdro_hg__rosidl_typesupport_c.so: /opt/ros/humble/lib/libbuiltin_interfaces__r
 libdro_hg__rosidl_typesupport_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libdro_hg__rosidl_typesupport_c.so: /opt/ros/humble/lib/librcutils.so
 libdro_hg__rosidl_typesupport_c.so: CMakeFiles/dro_hg__rosidl_typesupport_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libdro_hg__rosidl_typesupport_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libdro_hg__rosidl_typesupport_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dro_hg__rosidl_typesupport_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -327,6 +327,6 @@ CMakeFiles/dro_hg__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/dro_hg/
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/dro_hg/msg/leg_state__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp
 CMakeFiles/dro_hg__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp
-	cd /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles/dro_hg__rosidl_typesupport_c.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg__rosidl_typesupport_c
+	cd /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles/dro_hg__rosidl_typesupport_c.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg__rosidl_typesupport_c
 .PHONY : CMakeFiles/dro_hg__rosidl_typesupport_c.dir/depend
 

@@ -1,5 +1,5 @@
 CMakeFiles/igh_core.dir/src/dc.c.o: \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/dc.c \
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/src/dc.c \
  /usr/include/stdc-predef.h /usr/include/errno.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -79,5 +79,5 @@ CMakeFiles/igh_core.dir/src/dc.c.o: \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/include/igh_example.h \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/include/dc.h
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/include/igh_example.h \
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/include/dc.h

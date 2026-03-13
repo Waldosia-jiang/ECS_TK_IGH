@@ -45,37 +45,6 @@ extern "C" {
 static constexpr unsigned int INVALID_PDO_OFFSET = 0xFFFFFFFFu;
 static constexpr unsigned int MAX_SLAVE_NUMBER = 20;
 
-// #region agent log
-static void agent_debug_log(const char* location,
-                            const char* message,
-                            const char* hypothesisId,
-                            const char* runId,
-                            const std::string& data_kv_pairs_json)
-{
-    using namespace std::chrono;
-    const char* log_path = "/home/p30039115276/ECS_TK_IGH/.cursor/debug.log";
-    auto now = system_clock::now();
-    auto ms = duration_cast<milliseconds>(now.time_since_epoch()).count();
-
-    std::ostringstream oss;
-    oss << "{\"id\":\"log_" << ms
-        << "\",\"timestamp\":" << ms
-        << ",\"location\":\"" << location
-        << "\",\"message\":\"" << message
-        << "\",\"hypothesisId\":\"" << hypothesisId
-        << "\",\"runId\":\"" << runId
-        << "\",\"data\":" << data_kv_pairs_json
-        << "}\n";
-
-    std::ofstream ofs(log_path, std::ios::app);
-    if (ofs.is_open())
-    {
-        ofs << oss.str();
-        ofs.close();
-    }
-}
-// #endregion
-
 #define Beckhoff_AX58100  0x00000009, 0x26483052
 
 // 为泰科伺服（Vendor 0x00000c48, Product 0x00030924）配置 RW 模板 CST/CSP 混合模式 PDO
@@ -645,34 +614,45 @@ private:
                 servo_offset_, // 偏移数组（与 ros2_ws 一致）
                 7,             // pdo_choice = 7 -> 0x1607 / 0x1A07
                 0,             // target_velocity_cnt = 0（不使用 CSV）
-                1              // target_torque != 0 -> 选择 CST 模式
+                0              // target_torque = 0 -> CSP 仅位置（PDO 不含 0x6071，与 ros2_ws 一致）
             );
-
-            // #region agent log（保留，用于对比 RW 模板实现是否正常）
-            {
-                std::ostringstream data;
-                data << "{\"slave\":" << slave
-                     << ",\"ret\":" << ret
-                     << ",\"cw_off\":" << o.control_word
-                     << ",\"mo_off\":" << o.mode_of_operation
-                     << ",\"tp_off\":" << o.target_position
-                     << ",\"sw_off\":" << o.status_word
-                     << ",\"pa_off\":" << o.position_actual_value
-                     << "}";
-                agent_debug_log("ethercat_motor_node.cpp:init_ethercat",
-                                "servo_pdo_reg_results",
-                                "H2",
-                                "rw-template-cst",
-                                data.str());
-            }
-            // #endregion
 
             if (ret != 0)
             {
                 RCLCPP_ERROR(this->get_logger(),
-                             "Failed to configure RW template PDO (CST) for servo slave %d",
+                             "Failed to configure RW template PDO (CSP) for servo slave %d",
                              slave);
                 return -1;
+            }
+
+            // 仿照 ros2_ws::example_configure_servo_motion_params，为伺服配置 0x6080/6083/6084/6085（使用小参数，防止保持姿态时转矩过大）
+            {
+                const int32_t small_params[4] = {5, 1, 1, 1};
+
+                if (ecrt_slave_config_sdo32(servo_sc, 0x6080, 0x00, small_params[0]) != 0)
+                {
+                    RCLCPP_WARN(this->get_logger(),
+                                "servo %d: failed to set Profile velocity (0x6080) to %d",
+                                slave, small_params[0]);
+                }
+                if (ecrt_slave_config_sdo32(servo_sc, 0x6083, 0x00, small_params[1]) != 0)
+                {
+                    RCLCPP_WARN(this->get_logger(),
+                                "servo %d: failed to set Profile acceleration (0x6083) to %d",
+                                slave, small_params[1]);
+                }
+                if (ecrt_slave_config_sdo32(servo_sc, 0x6084, 0x00, small_params[2]) != 0)
+                {
+                    RCLCPP_WARN(this->get_logger(),
+                                "servo %d: failed to set Profile deceleration (0x6084) to %d",
+                                slave, small_params[2]);
+                }
+                if (ecrt_slave_config_sdo32(servo_sc, 0x6085, 0x00, small_params[3]) != 0)
+                {
+                    RCLCPP_WARN(this->get_logger(),
+                                "servo %d: failed to set Quick stop deceleration (0x6085) to %d",
+                                slave, small_params[3]);
+                }
             }
 
             RCLCPP_INFO(this->get_logger(),
@@ -685,7 +665,7 @@ private:
                         o.mode_of_operation);
         }
 
-        // 先注册 SSC 从站 PDO 列表
+        // 注册网关 0/1/2 的 PDO 到域（域内顺序：先伺服 3~16，后网关，与当前 17 从站拓扑一致）
         if (ecrt_domain_reg_pdo_entry_list(domain, domain_regs_in))
         {
             RCLCPP_ERROR(this->get_logger(), "PDO entry registration failed!");
@@ -805,6 +785,7 @@ private:
     }
 
     // 伺服上电状态机（参考 CiA 402 状态机，实现与示例 raw_value 逻辑一致）
+    // PDO 偏移量由 ecrt_slave_config_reg_pdo_entry() 在域内分配，与 servo_pdo_set.c 映射一致，按 slave 索引使用即可。
     static void servo_power_state_machine(int slave, int is_on)
     {
         if (slave < SERVO_FIRST || slave > SERVO_LAST) return;
@@ -839,54 +820,141 @@ private:
             return;
         }
 
-        // 状态字为 0 直接返回，不做 CiA 402 状态机动作
+        // CSP 保持时把目标转矩写 0（PDO 已不包含 0x60FF/0x60B2，与 ros2_ws 一致）
+        auto write_zero_torque_pdo = [&]() {
+            if (ofs.target_torque < INVALID_PDO_OFFSET)
+                EC_WRITE_S16(domain_pd + ofs.target_torque, 0);
+        };
+
+        // 状态字 0x0000：与 ros2_ws 一致，若已上电则视为 PDO 误读，保持 0x0F 不发 0x06，避免 0x1237↔0x0250 振荡
         if (raw_value == 0)
         {
+            if (servo_is_power_on_[slave])
+            {
+                EC_WRITE_U16(domain_pd + ofs.control_word, 0x000f);
+                if (ofs.target_position < INVALID_PDO_OFFSET)
+                    EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+                write_zero_torque_pdo();
+            }
             return;
         }
 
         // CiA 402 状态机转换（使用完整 16 位状态字匹配 0x0250/0x0231/0x0233/0x0037）
-        // 状态：未准备好开机 (0x0250) -> 发送 0x06
+        // 各分支内先写零转矩，再写目标位置，再写控制字（与 ros2_ws 行为一致）
         if (sw_raw == 0x0250)
         {
-            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0006);
+            write_zero_torque_pdo();
             if (ofs.target_position < INVALID_PDO_OFFSET)
                 EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0006);
         }
-
-        // 状态：准备好开机 (0x0231) -> 发送 0x07（开机）
         if (sw_raw == 0x0231)
         {
-            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0007);
+            write_zero_torque_pdo();
             if (ofs.target_position < INVALID_PDO_OFFSET)
                 EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0007);
         }
-
-        // 状态：已开机 (0x0233) -> 发送 0x0f（启用操作）
         if (sw_raw == 0x0233)
         {
-            EC_WRITE_U16(domain_pd + ofs.control_word, 0x000f);
+            write_zero_torque_pdo();
             if (ofs.target_position < INVALID_PDO_OFFSET)
                 EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x000f);
         }
 
-        // 状态：操作启用 (低 8 位 == 0x37) -> 持续写入目标位置 = 实际位置
+        // 状态：操作启用 (低 8 位 == 0x37) -> 每周期写 0x0F + 零转矩 + 目标位置=实际位置（与 ros2_ws 每周期写 control_word 一致，避免掉使能/振荡）
         if ( (sw_raw & 0x00ff) == 0x0037 )
         {
+            write_zero_torque_pdo();
             if (ofs.target_position < INVALID_PDO_OFFSET)
                 EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x000f);
             servo_is_power_on_[slave] = 1;
         }
 
-        // 故障检测：低 4 位 == 0x8 时，发送 0x80 清除故障（使用低 8 位 raw_value）
+        // 故障检测：低 4 位 == 0x8 时，发送 0x80 清除故障，并写目标位置与零转矩（与 ros2_ws 一致）
         if ( (raw_value & 0x000F) == 0x0008 )
         {
+            write_zero_torque_pdo();
+            if (ofs.target_position < INVALID_PDO_OFFSET)
+                EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
             EC_WRITE_U16(domain_pd + ofs.control_word, 0x0080);
         }
 
         // 始终保持运行模式为 CSP (8)
         if (ofs.mode_of_operation < INVALID_PDO_OFFSET)
             EC_WRITE_U8(domain_pd + ofs.mode_of_operation, 8);
+    }
+
+    // 每隔约 2 秒按轴号输出统一调试信息（对齐 ros2_ws/igh_ethercat/src/igh_example.c 的格式）
+    static void print_servo_unified_debug()
+    {
+        static struct timespec last_ts {0, 0};
+        struct timespec now_ts;
+        clock_gettime(CLOCK_MONOTONIC, &now_ts);
+        uint64_t now_ns = static_cast<uint64_t>(now_ts.tv_sec) * 1000000000ULL +
+                          static_cast<uint64_t>(now_ts.tv_nsec);
+        uint64_t last_ns = static_cast<uint64_t>(last_ts.tv_sec) * 1000000000ULL +
+                           static_cast<uint64_t>(last_ts.tv_nsec);
+        if (last_ns != 0 && now_ns - last_ns < 2000000000ULL)
+        {
+            return;
+        }
+        last_ts = now_ts;
+
+        // axis = slave - SERVO_FIRST；若启动后首几帧内轴 6~13 出现 0x0000，多为 DC 同步顺序或首周期未收齐，非偏移错误
+        printf("\n=== 统一调试信息 ===\n");
+        for (int axis = 0; axis <= (SERVO_LAST - SERVO_FIRST); ++axis)
+        {
+            int slave = SERVO_FIRST + axis;
+            const pdo_offset& ofs = servo_offset_[slave];
+            if (ofs.status_word >= INVALID_PDO_OFFSET || ofs.control_word >= INVALID_PDO_OFFSET)
+                continue;
+
+            uint16_t status = EC_READ_U16(domain_pd + ofs.status_word);
+            uint16_t control = EC_READ_U16(domain_pd + ofs.control_word);
+            int8_t mode_cmd = (ofs.mode_of_operation < INVALID_PDO_OFFSET)
+                                  ? static_cast<int8_t>(EC_READ_S8(domain_pd + ofs.mode_of_operation))
+                                  : -1;
+            int8_t mode_disp = (ofs.mode_of_operation_display < INVALID_PDO_OFFSET)
+                                   ? static_cast<int8_t>(EC_READ_S8(domain_pd + ofs.mode_of_operation_display))
+                                   : -1;
+            int32_t pos_act = (ofs.position_actual_value < INVALID_PDO_OFFSET)
+                                  ? EC_READ_S32(domain_pd + ofs.position_actual_value)
+                                  : 0;
+            int32_t pos_tgt = (ofs.target_position < INVALID_PDO_OFFSET)
+                                  ? EC_READ_S32(domain_pd + ofs.target_position)
+                                  : 0;
+            // 实际转矩来源：TxPDO 0x6077 (Torque actual value)，驱动器每周期上报；CSP 保持时为目标转矩=0 下位置环输出（重力/负载/摩擦）
+            int16_t torque_act = (ofs.torque_actual_value < INVALID_PDO_OFFSET)
+                                     ? EC_READ_S16(domain_pd + ofs.torque_actual_value)
+                                     : 0;
+
+            char status_str[128] = "";
+            if (status & 0x0001) strcat(status_str, "就绪 ");
+            if (status & 0x0002) strcat(status_str, "已开启 ");
+            if (status & 0x0004) strcat(status_str, "运行使能 ");
+            if (status & 0x0008) strcat(status_str, "故障 ");
+            if (status & 0x0010) strcat(status_str, "电压使能 ");
+            if (status & 0x0020) strcat(status_str, "快速停止 ");
+            if (status & 0x0040) strcat(status_str, "开启禁用 ");
+            if (status & 0x0200) strcat(status_str, "目标到达 ");
+
+            printf("轴 %d: 状态=0x%04X(%s) 控制=0x%04X 模式=%d/%d 实际=%d 目标=%d 差值=%d 实际转矩=%d 上电=%s\n",
+                   axis,
+                   status,
+                   status_str,
+                   control,
+                   static_cast<int>(mode_cmd),
+                   static_cast<int>(mode_disp),
+                   pos_act,
+                   pos_tgt,
+                   (pos_tgt - pos_act),
+                   static_cast<int>(torque_act),
+                   servo_is_power_on_[slave] ? "是" : "否");
+        }
+        printf("================================\n\n");
     }
 
     static void check_domain_state()
@@ -947,6 +1015,9 @@ private:
                     continue;
                 servo_power_state_machine(s, 1);
             }
+
+            // 每 2s 打印一次 3~16 号伺服的统一调试信息，用于对照 ros2_ws/igh_example.c
+            print_servo_unified_debug();
 
             check_domain_state();
             check_master_state();

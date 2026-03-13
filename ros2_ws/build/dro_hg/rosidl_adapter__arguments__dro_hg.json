@@ -1,11 +1,11 @@
 {
   "package_name": "dro_hg",
   "non_idl_tuples": [
-    "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg:msg/MotorCmd.msg",
-    "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg:msg/MotorState.msg",
-    "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg:msg/ArmCmd.msg",
-    "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg:msg/ArmState.msg",
-    "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg:msg/LegCmd.msg",
-    "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg:msg/LegState.msg"
+    "/home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg:msg/MotorCmd.msg",
+    "/home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg:msg/MotorState.msg",
+    "/home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg:msg/ArmCmd.msg",
+    "/home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg:msg/ArmState.msg",
+    "/home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg:msg/LegCmd.msg",
+    "/home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg:msg/LegState.msg"
   ]
 }

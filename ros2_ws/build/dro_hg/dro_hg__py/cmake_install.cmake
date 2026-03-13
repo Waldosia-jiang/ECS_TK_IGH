@@ -1,8 +1,8 @@
-# Install script for directory: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py
+# Install script for directory: /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg")
+  set(CMAKE_INSTALL_PREFIX "/home/p30039115276/ECS_TK_IGH/ros2_ws/install/dro_hg")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,6 +45,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/dro_hg__py/install_local_manifest.txt"
+  file(WRITE "/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/dro_hg__py/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

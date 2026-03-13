@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg
+CMAKE_SOURCE_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+CMAKE_BINARY_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg
 
 # Utility rule file for dro_hg.
 
@@ -66,12 +66,12 @@ include CMakeFiles/dro_hg.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/dro_hg.dir/progress.make
 
-CMakeFiles/dro_hg: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg/msg/MotorCmd.msg
-CMakeFiles/dro_hg: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg/msg/MotorState.msg
-CMakeFiles/dro_hg: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg/msg/ArmCmd.msg
-CMakeFiles/dro_hg: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg/msg/ArmState.msg
-CMakeFiles/dro_hg: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg/msg/LegCmd.msg
-CMakeFiles/dro_hg: /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg/msg/LegState.msg
+CMakeFiles/dro_hg: /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg/msg/MotorCmd.msg
+CMakeFiles/dro_hg: /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg/msg/MotorState.msg
+CMakeFiles/dro_hg: /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg/msg/ArmCmd.msg
+CMakeFiles/dro_hg: /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg/msg/ArmState.msg
+CMakeFiles/dro_hg: /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg/msg/LegCmd.msg
+CMakeFiles/dro_hg: /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg/msg/LegState.msg
 CMakeFiles/dro_hg: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 CMakeFiles/dro_hg: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 CMakeFiles/dro_hg: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -149,6 +149,6 @@ CMakeFiles/dro_hg.dir/clean:
 .PHONY : CMakeFiles/dro_hg.dir/clean
 
 CMakeFiles/dro_hg.dir/depend:
-	cd /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles/dro_hg.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg
+	cd /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles/dro_hg.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg
 .PHONY : CMakeFiles/dro_hg.dir/depend
 

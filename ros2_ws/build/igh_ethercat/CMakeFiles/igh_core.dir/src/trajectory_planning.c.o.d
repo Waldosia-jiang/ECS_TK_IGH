@@ -1,5 +1,5 @@
 CMakeFiles/igh_core.dir/src/trajectory_planning.c.o: \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/trajectory_planning.c \
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/src/trajectory_planning.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -30,9 +30,9 @@ CMakeFiles/igh_core.dir/src/trajectory_planning.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/include/trajectory_planning.h \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/include/motion.h \
- /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/include/igh_example.h \
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/include/trajectory_planning.h \
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/include/motion.h \
+ /home/p30039115276/ECS_TK_IGH/ros2_ws/src/igh_ethercat/include/igh_example.h \
  /home/p30039115276/ethercat-stable-1.6/include/ecrt.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg
+CMAKE_SOURCE_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+CMAKE_BINARY_DIR = /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dro_hg__rosidl_generator_c.dir/depend.make
@@ -180,8 +180,8 @@ rosidl_generator_c/dro_hg/msg/motor_cmd.h: /opt/ros/humble/share/geometry_msgs/m
 rosidl_generator_c/dro_hg/msg/motor_cmd.h: /opt/ros/humble/share/geometry_msgs/msg/VelocityStamped.idl
 rosidl_generator_c/dro_hg/msg/motor_cmd.h: /opt/ros/humble/share/geometry_msgs/msg/Wrench.idl
 rosidl_generator_c/dro_hg/msg/motor_cmd.h: /opt/ros/humble/share/geometry_msgs/msg/WrenchStamped.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
-	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c__arguments.json
 
 rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.h: rosidl_generator_c/dro_hg/msg/motor_cmd.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.h
@@ -276,86 +276,86 @@ CMakeFiles/dro_hg__rosidl_generator_c.dir/codegen:
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o: rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.i
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.s
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o: rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.i
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.s
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o: rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.i
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_cmd__functions.c.s
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o: rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.i
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/arm_state__functions.c.s
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o: rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.i
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_cmd__functions.c.s
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/flags.make
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o: rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o: CMakeFiles/dro_hg__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o -c /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o -MF CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o.d -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.o -c /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c > CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.i
 
 CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c -o CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/leg_state__functions.c.s
 
 # Object files for target dro_hg__rosidl_generator_c
 dro_hg__rosidl_generator_c_OBJECTS = \
@@ -383,7 +383,7 @@ libdro_hg__rosidl_generator_c.so: /opt/ros/humble/lib/libbuiltin_interfaces__ros
 libdro_hg__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libdro_hg__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libdro_hg__rosidl_generator_c.so: CMakeFiles/dro_hg__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C shared library libdro_hg__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C shared library libdro_hg__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dro_hg__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -424,6 +424,6 @@ CMakeFiles/dro_hg__rosidl_generator_c.dir/depend: rosidl_generator_c/dro_hg/msg/
 CMakeFiles/dro_hg__rosidl_generator_c.dir/depend: rosidl_generator_c/dro_hg/msg/leg_state.h
 CMakeFiles/dro_hg__rosidl_generator_c.dir/depend: rosidl_generator_c/dro_hg/msg/motor_cmd.h
 CMakeFiles/dro_hg__rosidl_generator_c.dir/depend: rosidl_generator_c/dro_hg/msg/motor_state.h
-	cd /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg/CMakeFiles/dro_hg__rosidl_generator_c.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg__rosidl_generator_c
+	cd /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/src/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg /home/p30039115276/ECS_TK_IGH/ros2_ws/build/dro_hg/CMakeFiles/dro_hg__rosidl_generator_c.dir/DependInfo.cmake "--color=$(COLOR)" dro_hg__rosidl_generator_c
 .PHONY : CMakeFiles/dro_hg__rosidl_generator_c.dir/depend
 
