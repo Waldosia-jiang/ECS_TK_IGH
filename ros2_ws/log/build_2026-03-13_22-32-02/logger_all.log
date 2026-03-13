@@ -1,0 +1,212 @@
+[0.067s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.067s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=22, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7b664c602980>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7b664c602530>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7b664c602530>>)
+[0.089s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.089s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.089s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.089s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.089s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.089s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.089s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws'
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.089s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.098s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extensions ['ignore', 'ignore_ament_install']
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extension 'ignore'
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extension 'ignore_ament_install'
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extensions ['colcon_pkg']
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extension 'colcon_pkg'
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extensions ['colcon_meta']
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extension 'colcon_meta'
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extensions ['ros']
+[0.099s] Level 1:colcon.colcon_core.package_identification:_identify(src/dro_hg) by extension 'ros'
+[0.100s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dro_hg' with type 'ros.ament_cmake' and name 'dro_hg'
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extensions ['ignore', 'ignore_ament_install']
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extension 'ignore'
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extension 'ignore_ament_install'
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extensions ['colcon_pkg']
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extension 'colcon_pkg'
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extensions ['colcon_meta']
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extension 'colcon_meta'
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extensions ['ros']
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(src/igh_ethercat) by extension 'ros'
+[0.101s] DEBUG:colcon.colcon_core.package_identification:Package 'src/igh_ethercat' with type 'ros.ament_cmake' and name 'igh_ethercat'
+[0.101s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.101s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.101s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.101s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.101s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.112s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.112s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.114s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 530 installed packages in /opt/ros/humble
+[0.115s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'cmake_target' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'cmake_clean_first' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'cmake_force_configure' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'ament_cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'dro_hg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.153s] DEBUG:colcon.colcon_core.verb:Building package 'dro_hg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg', 'merge_install': False, 'path': '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg', 'symlink_install': False, 'test_result_base': None}
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'cmake_target' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'cmake_clean_cache' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'cmake_clean_first' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'cmake_force_configure' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'ament_cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'catkin_cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'igh_ethercat' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.153s] DEBUG:colcon.colcon_core.verb:Building package 'igh_ethercat' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat', 'merge_install': False, 'path': '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat', 'symlink_install': False, 'test_result_base': None}
+[0.153s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.154s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.154s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg' with build type 'ament_cmake'
+[0.154s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/dro_hg'
+[0.156s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.156s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.156s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.161s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg -- -j22 -l22
+[4.139s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg -- -j22 -l22
+[4.143s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+[4.187s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dro_hg)
+[4.187s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/dro_hg
+[4.188s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg' for CMake module files
+[4.189s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg' for CMake config files
+[4.189s] Level 1:colcon.colcon_core.shell:create_environment_hook('dro_hg', 'cmake_prefix_path')
+[4.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/cmake_prefix_path.ps1'
+[4.189s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/cmake_prefix_path.dsv'
+[4.190s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/cmake_prefix_path.sh'
+[4.190s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib'
+[4.190s] Level 1:colcon.colcon_core.shell:create_environment_hook('dro_hg', 'ld_library_path_lib')
+[4.190s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/ld_library_path_lib.ps1'
+[4.191s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/ld_library_path_lib.dsv'
+[4.191s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/ld_library_path_lib.sh'
+[4.191s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/bin'
+[4.191s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib/pkgconfig/dro_hg.pc'
+[4.191s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib/python3.10/site-packages'
+[4.191s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/bin'
+[4.192s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.ps1'
+[4.192s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.dsv'
+[4.192s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.sh'
+[4.193s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.bash'
+[4.193s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.zsh'
+[4.193s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/colcon-core/packages/dro_hg)
+[4.194s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dro_hg)
+[4.194s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg' for CMake module files
+[4.194s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg' for CMake config files
+[4.195s] Level 1:colcon.colcon_core.shell:create_environment_hook('dro_hg', 'cmake_prefix_path')
+[4.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/cmake_prefix_path.ps1'
+[4.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/cmake_prefix_path.dsv'
+[4.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/cmake_prefix_path.sh'
+[4.195s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib'
+[4.195s] Level 1:colcon.colcon_core.shell:create_environment_hook('dro_hg', 'ld_library_path_lib')
+[4.196s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/ld_library_path_lib.ps1'
+[4.196s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/ld_library_path_lib.dsv'
+[4.196s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/hook/ld_library_path_lib.sh'
+[4.196s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/bin'
+[4.196s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib/pkgconfig/dro_hg.pc'
+[4.196s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib/python3.10/site-packages'
+[4.197s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/bin'
+[4.197s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.ps1'
+[4.197s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.dsv'
+[4.197s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.sh'
+[4.198s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.bash'
+[4.198s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/dro_hg/package.zsh'
+[4.198s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/share/colcon-core/packages/dro_hg)
+[4.198s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat' with build type 'ament_cmake'
+[4.198s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat'
+[4.198s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.199s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.208s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat': AMENT_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:/opt/ros/humble LD_LIBRARY_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib:/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/home/p30039115276/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat -- -j22 -l22
+[9.772s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat' returned '0': AMENT_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:/opt/ros/humble LD_LIBRARY_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib:/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/home/p30039115276/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat -- -j22 -l22
+[9.773s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat': AMENT_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:/opt/ros/humble LD_LIBRARY_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib:/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/home/p30039115276/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat
+[9.781s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(igh_ethercat)
+[9.781s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat' for CMake module files
+[9.782s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat' returned '0': AMENT_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg:/opt/ros/humble LD_LIBRARY_PATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/lib:/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/home/p30039115276/src/thirdparty/onnxruntime-linux-x64-1.20.1/lib:/home/p30039115276/anaconda3/envs/myenv/lib:/usr/lib/x86_64-linux-gnu:/usr/lib:/usr/local/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/lib:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo-11/../../lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/dro_hg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat
+[9.782s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat' for CMake config files
+[9.782s] Level 1:colcon.colcon_core.shell:create_environment_hook('igh_ethercat', 'cmake_prefix_path')
+[9.782s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/hook/cmake_prefix_path.ps1'
+[9.783s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/hook/cmake_prefix_path.dsv'
+[9.783s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/hook/cmake_prefix_path.sh'
+[9.783s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/lib'
+[9.783s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/bin'
+[9.783s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/lib/pkgconfig/igh_ethercat.pc'
+[9.783s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/lib/python3.10/site-packages'
+[9.784s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/bin'
+[9.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.ps1'
+[9.784s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.dsv'
+[9.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.sh'
+[9.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.bash'
+[9.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.zsh'
+[9.785s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/colcon-core/packages/igh_ethercat)
+[9.785s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(igh_ethercat)
+[9.785s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat' for CMake module files
+[9.786s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat' for CMake config files
+[9.786s] Level 1:colcon.colcon_core.shell:create_environment_hook('igh_ethercat', 'cmake_prefix_path')
+[9.786s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/hook/cmake_prefix_path.ps1'
+[9.786s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/hook/cmake_prefix_path.dsv'
+[9.786s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/hook/cmake_prefix_path.sh'
+[9.787s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/lib'
+[9.787s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/bin'
+[9.787s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/lib/pkgconfig/igh_ethercat.pc'
+[9.787s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/lib/python3.10/site-packages'
+[9.787s] Level 1:colcon.colcon_core.environment:checking '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/bin'
+[9.787s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.ps1'
+[9.787s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.dsv'
+[9.788s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.sh'
+[9.788s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.bash'
+[9.788s] INFO:colcon.colcon_core.shell:Creating package script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/igh_ethercat/package.zsh'
+[9.788s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/igh_ethercat/share/colcon-core/packages/igh_ethercat)
+[9.788s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.788s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.789s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.789s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.793s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.793s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.793s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.801s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.801s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/local_setup.ps1'
+[9.802s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/_local_setup_util_ps1.py'
+[9.802s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/setup.ps1'
+[9.803s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/local_setup.sh'
+[9.803s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/_local_setup_util_sh.py'
+[9.804s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/setup.sh'
+[9.804s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/local_setup.bash'
+[9.804s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/setup.bash'
+[9.805s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/local_setup.zsh'
+[9.805s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/install/setup.zsh'

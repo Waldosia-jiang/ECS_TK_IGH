@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/cmake_install.cmake",
+		"/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/dro_hg__py/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

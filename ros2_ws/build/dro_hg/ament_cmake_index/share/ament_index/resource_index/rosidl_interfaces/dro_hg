@@ -1,0 +1,12 @@
+msg/ArmCmd.idl
+msg/ArmCmd.msg
+msg/ArmState.idl
+msg/ArmState.msg
+msg/LegCmd.idl
+msg/LegCmd.msg
+msg/LegState.idl
+msg/LegState.msg
+msg/MotorCmd.idl
+msg/MotorCmd.msg
+msg/MotorState.idl
+msg/MotorState.msg

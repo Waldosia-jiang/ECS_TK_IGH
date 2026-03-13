@@ -1,0 +1,2 @@
+/usr/bin/ar qc libethercat_motor_lib.a CMakeFiles/ethercat_motor_lib.dir/src/math_ops.c.o CMakeFiles/ethercat_motor_lib.dir/src/motor_control.c.o
+/usr/bin/ranlib libethercat_motor_lib.a

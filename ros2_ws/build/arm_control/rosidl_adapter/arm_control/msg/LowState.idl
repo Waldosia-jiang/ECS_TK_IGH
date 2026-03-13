@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from arm_control/msg/LowState.msg
+// generated code does not contain a copyright notice
+
+#include "arm_control/msg/MotorState.idl"
+#include "std_msgs/msg/Header.idl"
+
+module arm_control {
+  module msg {
+    struct LowState {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "序列号 从站的站号")
+      uint8 slave_num;
+
+      sequence<arm_control::msg::MotorState, 14> motor_state;
+    };
+  };
+};

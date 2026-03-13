@@ -1,0 +1,6 @@
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/rosidl_adapter/dro_hg:msg/MotorCmd.idl
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/rosidl_adapter/dro_hg:msg/MotorState.idl
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/rosidl_adapter/dro_hg:msg/ArmCmd.idl
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/rosidl_adapter/dro_hg:msg/ArmState.idl
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/rosidl_adapter/dro_hg:msg/LegCmd.idl
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/rosidl_adapter/dro_hg:msg/LegState.idl

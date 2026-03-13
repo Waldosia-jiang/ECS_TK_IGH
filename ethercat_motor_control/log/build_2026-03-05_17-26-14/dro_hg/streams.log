@@ -1,0 +1,386 @@
+[0.009s] Invoking command in '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/motor_freq_response_test:/opt/ros/humble /usr/bin/cmake /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/src/dro_hg -DCMAKE_INSTALL_PREFIX=/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg
+[0.016s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.016s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.016s]   CMake.
+[0.016s] 
+[0.016s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.017s]   to tell CMake that the project requires at least <min> but has been updated
+[0.017s]   to work with policies introduced by <max> or earlier.
+[0.017s] 
+[0.017s] [0m
+[0.052s] -- The C compiler identification is GNU 11.4.0
+[0.097s] -- The CXX compiler identification is GNU 11.4.0
+[0.103s] -- Detecting C compiler ABI info
+[0.148s] -- Detecting C compiler ABI info - done
+[0.159s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.160s] -- Detecting C compile features
+[0.161s] -- Detecting C compile features - done
+[0.173s] -- Detecting CXX compiler ABI info
+[0.227s] -- Detecting CXX compiler ABI info - done
+[0.236s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.236s] -- Detecting CXX compile features
+[0.237s] -- Detecting CXX compile features - done
+[0.249s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.339s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter
+[0.416s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.420s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.427s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.470s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.504s] -- Found std_msgs: 4.9.0 (/opt/ros/humble/share/std_msgs/cmake)
+[0.529s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.860s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.203s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.650s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.651s] [33mCMake Warning (dev) at /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):
+[1.651s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[1.651s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[1.651s]   the cmake_policy command to set the policy and suppress this warning.
+[1.651s] 
+[1.652s] Call Stack (most recent call first):
+[1.652s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[1.652s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[1.652s]   CMakeLists.txt:27 (rosidl_generate_interfaces)
+[1.652s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.652s] [0m
+[1.668s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6")
+[1.670s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.671s] [33mCMake Warning (dev) at /opt/ros/humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:52 (find_package):
+[1.671s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[1.671s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[1.671s]   the cmake_policy command to set the policy and suppress this warning.
+[1.671s] 
+[1.671s] Call Stack (most recent call first):
+[1.671s]   /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[1.671s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[1.672s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[1.672s]   CMakeLists.txt:27 (rosidl_generate_interfaces)
+[1.672s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.672s] [0m
+[1.683s] [33mCMake Warning (dev) at /opt/ros/humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:140 (find_package):
+[1.683s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[1.683s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[1.683s]   the cmake_policy command to set the policy and suppress this warning.
+[1.683s] 
+[1.683s] Call Stack (most recent call first):
+[1.684s]   /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[1.684s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[1.684s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[1.684s]   CMakeLists.txt:27 (rosidl_generate_interfaces)
+[1.684s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.684s] [0m
+[1.690s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5")
+[1.690s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.690s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.690s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.703s] -- Found PythonExtra: .so
+[1.754s] -- Configuring done (1.7s)
+[1.784s] -- Generating done (0.0s)
+[1.795s] -- Build files have been written to: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg
+[1.803s] Invoked command in '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/motor_freq_response_test:/opt/ros/humble /usr/bin/cmake /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/src/dro_hg -DCMAKE_INSTALL_PREFIX=/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg
+[1.803s] Invoking command in '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/motor_freq_response_test:/opt/ros/humble /usr/bin/cmake --build /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg -- -j22 -l22
+[1.822s] [  1%] [1m[34mGenerating C code for ROS interfaces[0m
+[1.829s] [  1%] Built target ament_cmake_python_copy_dro_hg
+[1.829s] [  3%] [1m[34mGenerating C++ code for ROS interfaces[0m
+[1.980s] running egg_info
+[1.992s] creating dro_hg.egg-info
+[1.992s] writing dro_hg.egg-info/PKG-INFO
+[1.993s] writing dependency_links to dro_hg.egg-info/dependency_links.txt
+[1.993s] writing top-level names to dro_hg.egg-info/top_level.txt
+[1.993s] writing manifest file 'dro_hg.egg-info/SOURCES.txt'
+[2.031s] reading manifest file 'dro_hg.egg-info/SOURCES.txt'
+[2.031s] writing manifest file 'dro_hg.egg-info/SOURCES.txt'
+[2.048s] [  3%] Built target ament_cmake_python_build_dro_hg_egg
+[2.229s] [  6%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/imu_state__functions.c.o[0m
+[2.229s] [  6%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/low_cmd__functions.c.o[0m
+[2.230s] [  7%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/low_state__functions.c.o[0m
+[2.230s] [  9%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_cmd__functions.c.o[0m
+[2.230s] [ 11%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_c.dir/rosidl_generator_c/dro_hg/msg/detail/motor_state__functions.c.o[0m
+[2.265s] [ 11%] Built target dro_hg__cpp
+[2.269s] [ 12%] [1m[32mLinking C shared library libdro_hg__rosidl_generator_c.so[0m
+[2.270s] [ 14%] [1m[34mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.270s] [ 17%] [1m[34mGenerating C++ introspection for ROS interfaces[0m
+[2.270s] [ 17%] [1m[34mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.292s] [ 17%] Built target dro_hg__rosidl_generator_c
+[2.297s] [ 19%] [1m[34mGenerating C introspection for ROS interfaces[0m
+[2.297s] [ 20%] [1m[34mGenerating C type support for eProsima Fast-RTPS[0m
+[2.298s] [ 22%] [1m[34mGenerating C type support dispatch for ROS interfaces[0m
+[2.646s] [ 23%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dro_hg/msg/motor_cmd__type_support.cpp.o[0m
+[2.647s] [ 26%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dro_hg/msg/low_state__type_support.cpp.o[0m
+[2.647s] [ 26%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dro_hg/msg/low_cmd__type_support.cpp.o[0m
+[2.647s] [ 30%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dro_hg/msg/imu_state__type_support.cpp.o[0m
+[2.647s] [ 30%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dro_hg/msg/motor_state__type_support.cpp.o[0m
+[2.707s] [ 31%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/low_cmd__type_support.cpp.o[0m
+[2.708s] [ 33%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_cmd__type_support.cpp.o[0m
+[2.708s] [ 34%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/imu_state__type_support.cpp.o[0m
+[2.708s] [ 36%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/low_state__type_support.cpp.o[0m
+[2.708s] [ 38%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_c.dir/rosidl_typesupport_c/dro_hg/msg/motor_state__type_support.cpp.o[0m
+[2.734s] [ 39%] [1m[32mLinking CXX shared library libdro_hg__rosidl_typesupport_c.so[0m
+[2.754s] [ 41%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dro_hg/msg/detail/imu_state__type_support_c.cpp.o[0m
+[2.754s] [ 42%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dro_hg/msg/detail/low_cmd__type_support_c.cpp.o[0m
+[2.754s] [ 44%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dro_hg/msg/detail/motor_cmd__type_support_c.cpp.o[0m
+[2.754s] [ 46%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dro_hg/msg/detail/low_state__type_support_c.cpp.o[0m
+[2.755s] [ 47%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dro_hg/msg/detail/motor_state__type_support_c.cpp.o[0m
+[2.759s] [ 49%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dro_hg/msg/detail/imu_state__type_support.cpp.o[0m
+[2.759s] [ 50%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dro_hg/msg/detail/low_state__type_support.cpp.o[0m
+[2.759s] [ 52%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dro_hg/msg/detail/low_cmd__type_support.cpp.o[0m
+[2.759s] [ 53%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dro_hg/msg/detail/motor_cmd__type_support.cpp.o[0m
+[2.760s] [ 55%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dro_hg/msg/detail/motor_state__type_support.cpp.o[0m
+[2.775s] [ 55%] Built target dro_hg__rosidl_typesupport_c
+[2.797s] [ 60%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dro_hg/msg/detail/dds_fastrtps/low_cmd__type_support.cpp.o[0m
+[2.797s] [ 60%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dro_hg/msg/detail/dds_fastrtps/imu_state__type_support.cpp.o[0m
+[2.797s] [ 60%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dro_hg/msg/detail/dds_fastrtps/motor_cmd__type_support.cpp.o[0m
+[2.799s] [ 61%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dro_hg/msg/detail/dds_fastrtps/motor_state__type_support.cpp.o[0m
+[2.801s] [ 63%] [32mBuilding CXX object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dro_hg/msg/detail/dds_fastrtps/low_state__type_support.cpp.o[0m
+[2.858s] [ 68%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dro_hg/msg/detail/imu_state__type_support.c.o[0m
+[2.859s] [ 68%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dro_hg/msg/detail/low_state__type_support.c.o[0m
+[2.859s] [ 68%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dro_hg/msg/detail/motor_cmd__type_support.c.o[0m
+[2.889s] [ 69%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dro_hg/msg/detail/low_cmd__type_support.c.o[0m
+[2.896s] [ 71%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dro_hg/msg/detail/motor_state__type_support.c.o[0m
+[2.959s] [ 73%] [1m[32mLinking CXX shared library libdro_hg__rosidl_typesupport_cpp.so[0m
+[2.969s] [ 74%] [1m[32mLinking C shared library libdro_hg__rosidl_typesupport_introspection_c.so[0m
+[2.990s] [ 74%] Built target dro_hg__rosidl_typesupport_cpp
+[3.003s] [ 74%] Built target dro_hg__rosidl_typesupport_introspection_c
+[3.150s] [ 76%] [1m[32mLinking CXX shared library libdro_hg__rosidl_typesupport_fastrtps_c.so[0m
+[3.202s] [ 76%] Built target dro_hg__rosidl_typesupport_fastrtps_c
+[3.229s] [ 77%] [1m[32mLinking CXX shared library libdro_hg__rosidl_typesupport_introspection_cpp.so[0m
+[3.272s] [ 77%] Built target dro_hg__rosidl_typesupport_introspection_cpp
+[3.284s] [ 79%] [1m[32mLinking CXX shared library libdro_hg__rosidl_typesupport_fastrtps_cpp.so[0m
+[3.329s] [ 79%] Built target dro_hg__rosidl_typesupport_fastrtps_cpp
+[3.340s] [ 79%] Built target dro_hg
+[3.350s] [ 80%] [1m[34mGenerating Python code for ROS interfaces[0m
+[4.018s] [ 80%] Built target dro_hg__py
+[4.027s] [ 82%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_py.dir/rosidl_generator_py/dro_hg/msg/_motor_state_s.c.o[0m
+[4.027s] [ 84%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_py.dir/rosidl_generator_py/dro_hg/msg/_imu_state_s.c.o[0m
+[4.028s] [ 85%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_py.dir/rosidl_generator_py/dro_hg/msg/_motor_cmd_s.c.o[0m
+[4.028s] [ 87%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_py.dir/rosidl_generator_py/dro_hg/msg/_low_cmd_s.c.o[0m
+[4.028s] [ 88%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_generator_py.dir/rosidl_generator_py/dro_hg/msg/_low_state_s.c.o[0m
+[4.105s] [ 90%] [1m[32mLinking C shared library rosidl_generator_py/dro_hg/libdro_hg__rosidl_generator_py.so[0m
+[4.131s] [ 90%] Built target dro_hg__rosidl_generator_py
+[4.140s] [ 92%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.140s] [ 95%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_c.c.o[0m
+[4.140s] [ 95%] [32mBuilding C object CMakeFiles/dro_hg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.202s] [ 96%] [1m[32mLinking C shared library rosidl_generator_py/dro_hg/dro_hg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.205s] [ 98%] [1m[32mLinking C shared library rosidl_generator_py/dro_hg/dro_hg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.208s] [100%] [1m[32mLinking C shared library rosidl_generator_py/dro_hg/dro_hg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[4.227s] [100%] Built target dro_hg__rosidl_typesupport_c__pyext
+[4.230s] [100%] Built target dro_hg__rosidl_typesupport_fastrtps_c__pyext
+[4.231s] [100%] Built target dro_hg__rosidl_typesupport_introspection_c__pyext
+[4.238s] Invoked command in '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/motor_freq_response_test:/opt/ros/humble /usr/bin/cmake --build /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg -- -j22 -l22
+[4.243s] Invoking command in '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/motor_freq_response_test:/opt/ros/humble /usr/bin/cmake --install /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg
+[4.246s] -- Install configuration: ""
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/ament_index/resource_index/rosidl_interfaces/dro_hg
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/imu_state.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/motor_state.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__functions.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__struct.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__functions.c
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__type_support.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__functions.c
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__struct.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__struct.h
+[4.246s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__functions.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__functions.c
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__struct.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__functions.c
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__type_support.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__functions.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__type_support.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__functions.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__functions.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__type_support.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__type_support.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__functions.c
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__struct.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/low_cmd.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/motor_cmd.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/low_state.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/rosidl_generator_c__visibility_control.h
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/library_path.sh
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/library_path.dsv
+[4.247s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_generator_c.so
+[4.247s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_generator_c.so" to ""
+[4.248s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg
+[4.248s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.248s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__rosidl_typesupport_fastrtps_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__rosidl_typesupport_fastrtps_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__rosidl_typesupport_fastrtps_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__rosidl_typesupport_fastrtps_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__rosidl_typesupport_fastrtps_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_fastrtps_c.so
+[4.248s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_fastrtps_c.so" to ""
+[4.248s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg
+[4.248s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.248s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__type_support.c
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__type_support.c
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__type_support.c
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__rosidl_typesupport_introspection_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__type_support.c
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__rosidl_typesupport_introspection_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__rosidl_typesupport_introspection_c.h
+[4.248s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__type_support.c
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__rosidl_typesupport_introspection_c.h
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__rosidl_typesupport_introspection_c.h
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_introspection_c.so
+[4.249s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_introspection_c.so" to ""
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_c.so
+[4.249s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_c.so" to ""
+[4.249s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg
+[4.249s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/imu_state.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/motor_cmd.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/motor_state.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/low_cmd.hpp
+[4.249s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__type_support.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__builder.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__traits.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__builder.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__traits.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__struct.hpp
+[4.249s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__traits.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__builder.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__struct.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__type_support.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__struct.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__type_support.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__type_support.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__builder.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__struct.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__traits.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__traits.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__type_support.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__builder.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__struct.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/low_state.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/rosidl_generator_cpp__visibility_control.hpp
+[4.250s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg
+[4.250s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg
+[4.250s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__rosidl_typesupport_fastrtps_cpp.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__rosidl_typesupport_fastrtps_cpp.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__rosidl_typesupport_fastrtps_cpp.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/dds_fastrtps
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.250s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_fastrtps_cpp.so
+[4.250s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[4.251s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg
+[4.251s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg
+[4.251s] -- Up-to-date: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__type_support.cpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__rosidl_typesupport_introspection_cpp.hpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/imu_state__type_support.cpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__rosidl_typesupport_introspection_cpp.hpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_cmd__type_support.cpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__type_support.cpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__type_support.cpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__rosidl_typesupport_introspection_cpp.hpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__rosidl_typesupport_introspection_cpp.hpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/low_state__rosidl_typesupport_introspection_cpp.hpp
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_introspection_cpp.so
+[4.251s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_introspection_cpp.so" to ""
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_cpp.so
+[4.251s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_typesupport_cpp.so" to ""
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/pythonpath.sh
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/pythonpath.dsv
+[4.251s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg-0.0.0-py3.10.egg-info
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg-0.0.0-py3.10.egg-info/SOURCES.txt
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg-0.0.0-py3.10.egg-info/dependency_links.txt
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg-0.0.0-py3.10.egg-info/PKG-INFO
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg-0.0.0-py3.10.egg-info/top_level.txt
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_low_cmd_s.c
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_motor_cmd.py
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_motor_cmd_s.c
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_imu_state.py
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_motor_state_s.c
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_imu_state_s.c
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_motor_state.py
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_low_state.py
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/__init__.py
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_low_cmd.py
+[4.252s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_low_state_s.c
+[4.253s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[4.253s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/_dro_hg_s.ep.rosidl_typesupport_introspection_c.c
+[4.253s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/_dro_hg_s.ep.rosidl_typesupport_c.c
+[4.254s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/__init__.py
+[4.254s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[4.254s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/_dro_hg_s.ep.rosidl_typesupport_fastrtps_c.c
+[4.254s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/libdro_hg__rosidl_generator_py.so
+[4.254s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[4.280s] Listing '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/__init__.py'...
+[4.280s] Listing '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/__init__.py'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_imu_state.py'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_low_cmd.py'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_low_state.py'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_motor_cmd.py'...
+[4.280s] Compiling '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/msg/_motor_state.py'...
+[4.283s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[4.283s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[4.283s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[4.283s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[4.283s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[4.283s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/local/lib/python3.10/dist-packages/dro_hg/dro_hg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[4.283s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_generator_py.so
+[4.284s] -- Set non-toolchain portion of runtime path of "/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/lib/libdro_hg__rosidl_generator_py.so" to ""
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/IMUState.idl
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/LowState.idl
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/MotorCmd.idl
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/LowCmd.idl
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/MotorState.idl
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/IMUState.msg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/LowState.msg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/MotorCmd.msg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/LowCmd.msg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/msg/MotorState.msg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/ament_index/resource_index/package_run_dependencies/dro_hg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/ament_index/resource_index/parent_prefix_path/dro_hg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/ament_prefix_path.sh
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/ament_prefix_path.dsv
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/path.sh
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/environment/path.dsv
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/local_setup.bash
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/local_setup.sh
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/local_setup.zsh
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/local_setup.dsv
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/package.dsv
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/ament_index/resource_index/packages/dro_hg
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_generator_cExport.cmake
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_generator_cExport-noconfig.cmake
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_typesupport_fastrtps_cExport.cmake
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_introspection_cExport.cmake
+[4.284s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_cExport.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_cExport-noconfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_generator_cppExport.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_introspection_cppExport.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_cppExport.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hg__rosidl_typesupport_cppExport-noconfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_generator_pyExport.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/export_dro_hg__rosidl_generator_pyExport-noconfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/rosidl_cmake-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/ament_cmake_export_libraries-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/ament_cmake_export_targets-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hgConfig.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/cmake/dro_hgConfig-version.cmake
+[4.285s] -- Installing: /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/dro_hg/share/dro_hg/package.xml
+[4.287s] Invoked command in '/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/install/motor_freq_response_test:/opt/ros/humble /usr/bin/cmake --install /home/p30039115276/EC_ethercat_igh_c++/ethercat_motor_control/build/dro_hg

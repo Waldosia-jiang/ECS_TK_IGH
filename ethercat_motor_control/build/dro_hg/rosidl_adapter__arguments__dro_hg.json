@@ -1,0 +1,11 @@
+{
+  "package_name": "dro_hg",
+  "non_idl_tuples": [
+    "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/dro_hg:msg/MotorCmd.msg",
+    "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/dro_hg:msg/MotorState.msg",
+    "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/dro_hg:msg/ArmCmd.msg",
+    "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/dro_hg:msg/ArmState.msg",
+    "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/dro_hg:msg/LegCmd.msg",
+    "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/dro_hg:msg/LegState.msg"
+  ]
+}

@@ -1,0 +1,11 @@
+[01m[K/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/motion.c:[m[K In function ‘[01m[Kmotion_calculate_incremental_target[m[K’:
+[01m[K/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/motion.c:244:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcurrent_actual[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  244 |     int32_t [01;35m[Kcurrent_actual[m[K = motion_data[slv_num].actual_position;  // 当前实际位置（用于调试）
+      |             [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/motion.c:[m[K In function ‘[01m[Kmotion_update_pdo_data[m[K’:
+[01m[K/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/motion.c:323:46:[m[K [01;35m[Kwarning: [m[Kcomparison of unsigned expression in ‘[01m[K>= 0[m[K’ is always true [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wtype-limits-Wtype-limits]8;;[m[K]
+  323 |                 if(offset[i].target_velocity [01;35m[K>=[m[K 0 && offset[i].target_velocity < 0x0000ffff) {
+      |                                              [01;35m[K^~[m[K
+[01m[K/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/src/igh_ethercat/src/motion.c:336:44:[m[K [01;35m[Kwarning: [m[Kcomparison of unsigned expression in ‘[01m[K>= 0[m[K’ is always true [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wtype-limits-Wtype-limits]8;;[m[K]
+  336 |                 if(offset[i].target_torque [01;35m[K>=[m[K 0 && offset[i].target_torque < 0x0000ffff) {
+      |                                            [01;35m[K^~[m[K

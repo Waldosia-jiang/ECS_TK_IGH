@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

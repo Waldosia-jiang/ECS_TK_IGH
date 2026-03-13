@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/p30039115276/TK_MOTOR_IGH/igh_example_2025_1229_CSP_CSV_CST/ros2_ws/build/igh_ethercat/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

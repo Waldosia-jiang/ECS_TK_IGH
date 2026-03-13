@@ -1,0 +1,2 @@
+/usr/bin/ar qc libigh_core.a CMakeFiles/igh_core.dir/src/igh_example.c.o CMakeFiles/igh_core.dir/src/motion.c.o CMakeFiles/igh_core.dir/src/pdo_set.c.o CMakeFiles/igh_core.dir/src/trajectory_planning.c.o CMakeFiles/igh_core.dir/src/dc.c.o
+/usr/bin/ranlib libigh_core.a

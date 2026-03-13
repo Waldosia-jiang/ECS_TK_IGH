@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "dro_hg__py",
+		"source" : "/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/dro_hg/dro_hg__py"
+	}
+}

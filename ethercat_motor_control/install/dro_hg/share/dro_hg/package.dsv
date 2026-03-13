@@ -1,0 +1,11 @@
+source;share/dro_hg/hook/cmake_prefix_path.ps1
+source;share/dro_hg/hook/cmake_prefix_path.dsv
+source;share/dro_hg/hook/cmake_prefix_path.sh
+source;share/dro_hg/hook/ld_library_path_lib.ps1
+source;share/dro_hg/hook/ld_library_path_lib.dsv
+source;share/dro_hg/hook/ld_library_path_lib.sh
+source;share/dro_hg/local_setup.bash
+source;share/dro_hg/local_setup.dsv
+source;share/dro_hg/local_setup.ps1
+source;share/dro_hg/local_setup.sh
+source;share/dro_hg/local_setup.zsh

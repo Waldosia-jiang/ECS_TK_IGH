@@ -1,0 +1,4 @@
+source;share/igh_ethercat/local_setup.bash
+source;share/igh_ethercat/local_setup.dsv
+source;share/igh_ethercat/local_setup.sh
+source;share/igh_ethercat/local_setup.zsh

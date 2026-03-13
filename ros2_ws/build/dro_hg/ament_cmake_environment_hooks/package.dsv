@@ -1,0 +1,4 @@
+source;share/dro_hg/local_setup.bash
+source;share/dro_hg/local_setup.dsv
+source;share/dro_hg/local_setup.sh
+source;share/dro_hg/local_setup.zsh

@@ -1,0 +1,4 @@
+source;share/dro_hg/environment/ament_prefix_path.sh
+source;share/dro_hg/environment/library_path.sh
+source;share/dro_hg/environment/path.sh
+source;share/dro_hg/environment/pythonpath.sh

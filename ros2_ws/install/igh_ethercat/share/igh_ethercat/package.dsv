@@ -1,0 +1,8 @@
+source;share/igh_ethercat/hook/cmake_prefix_path.ps1
+source;share/igh_ethercat/hook/cmake_prefix_path.dsv
+source;share/igh_ethercat/hook/cmake_prefix_path.sh
+source;share/igh_ethercat/local_setup.bash
+source;share/igh_ethercat/local_setup.dsv
+source;share/igh_ethercat/local_setup.ps1
+source;share/igh_ethercat/local_setup.sh
+source;share/igh_ethercat/local_setup.zsh
