@@ -18,6 +18,8 @@
 #include <cmath>
 #include <cstdio>
 #include <string>
+#include <sstream>
+#include <fstream>
 
 #include <rcl_interfaces/msg/parameter_descriptor.hpp>
 #include <rcl_interfaces/msg/floating_point_range.hpp>
@@ -26,6 +28,10 @@
 #include "ethercat_motor_node/main.h"
 #include "dro_hg/msg/leg_cmd.hpp"
 #include "dro_hg/msg/leg_state.hpp"
+
+extern "C" {
+#include "ethercat_motor_node/servo_pdo_set.h"
+}
 
 // SSC 网关从站数量（Beckhoff AX58100）
 #define SSC_SLAVE_NUM 3
@@ -36,51 +42,46 @@
 
 #define AnaInSlavePos 0, 0
 
-// 伺服 PDO 在 domain 中的字节偏移（用于 3~16 号泰科伺服状态机，参考 ros2_ws/igh_ethercat）
-struct ServoPdoOffsets {
-    size_t control_word;         // 0x6040
-    size_t status_word;          // 0x6041
-    size_t target_position;      // 0x607A
-    size_t position_actual_value;// 0x6064
-    size_t mode_of_operation;    // 0x6060
-};
-static constexpr size_t INVALID_SERVO_OFFSET = static_cast<size_t>(-1);
+static constexpr unsigned int INVALID_PDO_OFFSET = 0xFFFFFFFFu;
+static constexpr unsigned int MAX_SLAVE_NUMBER = 20;
+
+// #region agent log
+static void agent_debug_log(const char* location,
+                            const char* message,
+                            const char* hypothesisId,
+                            const char* runId,
+                            const std::string& data_kv_pairs_json)
+{
+    using namespace std::chrono;
+    const char* log_path = "/home/p30039115276/ECS_TK_IGH/.cursor/debug.log";
+    auto now = system_clock::now();
+    auto ms = duration_cast<milliseconds>(now.time_since_epoch()).count();
+
+    std::ostringstream oss;
+    oss << "{\"id\":\"log_" << ms
+        << "\",\"timestamp\":" << ms
+        << ",\"location\":\"" << location
+        << "\",\"message\":\"" << message
+        << "\",\"hypothesisId\":\"" << hypothesisId
+        << "\",\"runId\":\"" << runId
+        << "\",\"data\":" << data_kv_pairs_json
+        << "}\n";
+
+    std::ofstream ofs(log_path, std::ios::app);
+    if (ofs.is_open())
+    {
+        ofs << oss.str();
+        ofs.close();
+    }
+}
+// #endregion
+
 #define Beckhoff_AX58100  0x00000009, 0x26483052
 
-// 为泰科伺服（Vendor 0x00000c48, Product 0x00030924）配置 RW 模板 CSP 模式 PDO（参考 ros2_ws/igh_ethercat）
-static int configure_servo_pdo(ec_slave_config_t* slave)
-{
-    const uint16_t rx_pdo = 0x1607;
-    const uint16_t tx_pdo = 0x1a07;
-
-    // 清除并重新分配 SM2/SM3
-    ecrt_slave_config_pdo_assign_clear(slave, 2);
-    ecrt_slave_config_pdo_assign_clear(slave, 3);
-    if (ecrt_slave_config_pdo_assign_add(slave, 2, rx_pdo) != 0) return -1;
-    if (ecrt_slave_config_pdo_assign_add(slave, 3, tx_pdo) != 0) return -1;
-
-    // 清空 PDO 映射
-    ecrt_slave_config_pdo_mapping_clear(slave, rx_pdo);
-    ecrt_slave_config_pdo_mapping_clear(slave, tx_pdo);
-
-    // RxPDO: 6040 + 6060 + 607A + 60FF + 6071 + 60B2
-    if (ecrt_slave_config_pdo_mapping_add(slave, rx_pdo, 0x6040, 0x00, 16) != 0) return -1; // 控制字
-    if (ecrt_slave_config_pdo_mapping_add(slave, rx_pdo, 0x6060, 0x00, 8)  != 0) return -1; // 运行模式
-    if (ecrt_slave_config_pdo_mapping_add(slave, rx_pdo, 0x607A, 0x00, 32) != 0) return -1; // 目标位置
-    if (ecrt_slave_config_pdo_mapping_add(slave, rx_pdo, 0x60FF, 0x00, 32) != 0) return -1; // 目标速度
-    if (ecrt_slave_config_pdo_mapping_add(slave, rx_pdo, 0x6071, 0x00, 16) != 0) return -1; // 目标转矩
-    if (ecrt_slave_config_pdo_mapping_add(slave, rx_pdo, 0x60B2, 0x00, 16) != 0) return -1; // 转矩偏移
-
-    // TxPDO: 6041 + 6061 + 6064 + 606C + 6077
-    if (ecrt_slave_config_pdo_mapping_add(slave, tx_pdo, 0x6041, 0x00, 16) != 0) return -1; // 状态字
-    if (ecrt_slave_config_pdo_mapping_add(slave, tx_pdo, 0x6061, 0x00, 8)  != 0) return -1; // 运行模式显示
-    if (ecrt_slave_config_pdo_mapping_add(slave, tx_pdo, 0x6064, 0x00, 32) != 0) return -1; // 实际位置
-    if (ecrt_slave_config_pdo_mapping_add(slave, tx_pdo, 0x606C, 0x00, 32) != 0) return -1; // 实际速度
-    if (ecrt_slave_config_pdo_mapping_add(slave, tx_pdo, 0x6077, 0x00, 16) != 0) return -1; // 实际转矩
-
-    return 0;
-}
-
+// 为泰科伺服（Vendor 0x00000c48, Product 0x00030924）配置 RW 模板 CST/CSP 混合模式 PDO
+// 完全比照 ros2_ws/igh_ethercat 中 pdo_set_configure_rw_template_cst 的 PDO 映射：
+// RxPDO: 6040 + 6060 + 607A + 6071
+// TxPDO: 6041 + 6061 + 6064 + 6077
 using namespace std::chrono_literals;
 
 class EthercatMotorNode : public rclcpp::Node
@@ -219,6 +220,15 @@ private:
 
     void leg_cmd_callback(const dro_hg::msg::LegCmd::SharedPtr msg)
     {
+        // 只有当 3~16 号伺服全部进入 Operation enabled（状态字低 8 位 == 0x37）时，才响应上层力矩/位置指令
+        if (!all_servos_operation_enabled())
+        {
+            RCLCPP_WARN_THROTTLE(
+                this->get_logger(), *this->get_clock(), 2000,
+                "伺服尚未全部上电完成（low8 != 0x37），忽略 /leg_cmd 指令。");
+            return;
+        }
+
         const uint8_t begin = msg->begin;
         const uint8_t end = msg->end;
         const size_t n = msg->motor_cmd.size();
@@ -548,12 +558,8 @@ private:
 
     int init_ethercat()
     {
-        for (int i = 0; i < PHYSICAL_SLAVE_NUM; i++)
-        {
-            servo_pdo_offsets_[i].control_word = servo_pdo_offsets_[i].status_word =
-                servo_pdo_offsets_[i].target_position = servo_pdo_offsets_[i].position_actual_value =
-                servo_pdo_offsets_[i].mode_of_operation = INVALID_SERVO_OFFSET;
-        }
+        // 初始化伺服 PDO 偏移为无效值（0xFFFFFFFF），与 ros2_ws 保持一致
+        memset(servo_offset_, 0xFF, sizeof(servo_offset_));
         init_pdo_entries(slave_0_pdo_entries_out, slave_0_pdo_entries_in);
         init_domain_regs(domain_regs_in);
 
@@ -600,7 +606,7 @@ private:
             }
         }
 
-        // 为 3~16 号泰科伺服添加 PDO 配置（参考 ros2_ws/igh_ethercat）
+        // 为 3~16 号泰科伺服添加 PDO 配置并注册 PDO 偏移（使用 ros2_ws 的 RW 模板实现）
         for (int slave = 3; slave <= 16; ++slave)
         {
             ec_slave_info_t info{};
@@ -624,37 +630,66 @@ private:
                 return -1;
             }
 
-            RCLCPP_INFO(this->get_logger(), "Configuring PDOs (CSP RW template) for servo slave %d...", slave);
-            if (configure_servo_pdo(servo_sc) != 0)
+            // 使用 RW 模板 0x1607/0x1A07 + CST 模式进行 PDO 配置与偏移注册
+            pdo_offset& o = servo_offset_[slave];
+            o.control_word = o.mode_of_operation = o.target_position = o.target_velocity =
+                o.target_torque = o.velocity_feedforward = o.torque_offset = o.digital_outputs =
+                o.status_word = o.mode_of_operation_display = o.position_actual_value =
+                o.velocity_actual_value = o.velocity_demand_value = o.torque_actual_value =
+                o.torque_demand_value = o.digital_inputs = INVALID_PDO_OFFSET;
+
+            int ret = pdo_set_configure_slave_pdo(
+                slave,         // 从站索引
+                servo_sc,      // 从站配置
+                domain,        // 域
+                servo_offset_, // 偏移数组（与 ros2_ws 一致）
+                7,             // pdo_choice = 7 -> 0x1607 / 0x1A07
+                0,             // target_velocity_cnt = 0（不使用 CSV）
+                1              // target_torque != 0 -> 选择 CST 模式
+            );
+
+            // #region agent log（保留，用于对比 RW 模板实现是否正常）
             {
-                RCLCPP_ERROR(this->get_logger(), "Failed to configure PDOs for servo slave %d", slave);
+                std::ostringstream data;
+                data << "{\"slave\":" << slave
+                     << ",\"ret\":" << ret
+                     << ",\"cw_off\":" << o.control_word
+                     << ",\"mo_off\":" << o.mode_of_operation
+                     << ",\"tp_off\":" << o.target_position
+                     << ",\"sw_off\":" << o.status_word
+                     << ",\"pa_off\":" << o.position_actual_value
+                     << "}";
+                agent_debug_log("ethercat_motor_node.cpp:init_ethercat",
+                                "servo_pdo_reg_results",
+                                "H2",
+                                "rw-template-cst",
+                                data.str());
+            }
+            // #endregion
+
+            if (ret != 0)
+            {
+                RCLCPP_ERROR(this->get_logger(),
+                             "Failed to configure RW template PDO (CST) for servo slave %d",
+                             slave);
                 return -1;
             }
+
+            RCLCPP_INFO(this->get_logger(),
+                        "servo %d PDO offsets: cw=%u sw=%u tp=%u pa=%u mo=%u",
+                        slave,
+                        o.control_word,
+                        o.status_word,
+                        o.target_position,
+                        o.position_actual_value,
+                        o.mode_of_operation);
         }
 
-        // 先注册 SSC 从站 PDO 列表，再注册伺服 PDO 条目（IgH 要求先 domain list）
+        // 先注册 SSC 从站 PDO 列表
         if (ecrt_domain_reg_pdo_entry_list(domain, domain_regs_in))
         {
             RCLCPP_ERROR(this->get_logger(), "PDO entry registration failed!");
             return -1;
-        }
-
-        // 将伺服 PDO 条目注册到 domain（须在 domain list 之后、activate 之前）
-        for (int slave = 3; slave <= 16; ++slave)
-        {
-            ec_slave_info_t info{};
-            if (ecrt_master_get_slave(master, slave, &info) != 0) continue;
-            if (info.vendor_id != 0x00000c48 || info.product_code != 0x00030924) continue;
-            ec_slave_config_t* servo_sc = ecrt_master_slave_config(master, 0, slave, info.vendor_id, info.product_code);
-            if (!servo_sc) continue;
-            ServoPdoOffsets& o = servo_pdo_offsets_[slave];
-            o.control_word = o.status_word = o.target_position = o.position_actual_value = o.mode_of_operation = INVALID_SERVO_OFFSET;
-            unsigned int bp = 0;
-            if (ecrt_slave_config_reg_pdo_entry(servo_sc, 0x6040, 0x00, domain, &bp) == 0) o.control_word = static_cast<size_t>(bp) / 8;
-            if (ecrt_slave_config_reg_pdo_entry(servo_sc, 0x6041, 0x00, domain, &bp) == 0) o.status_word = static_cast<size_t>(bp) / 8;
-            if (ecrt_slave_config_reg_pdo_entry(servo_sc, 0x6060, 0x00, domain, &bp) == 0) o.mode_of_operation = static_cast<size_t>(bp) / 8;
-            if (ecrt_slave_config_reg_pdo_entry(servo_sc, 0x607A, 0x00, domain, &bp) == 0) o.target_position = static_cast<size_t>(bp) / 8;
-            if (ecrt_slave_config_reg_pdo_entry(servo_sc, 0x6064, 0x00, domain, &bp) == 0) o.position_actual_value = static_cast<size_t>(bp) / 8;
         }
 
         RCLCPP_INFO(this->get_logger(), "Activating master...");
@@ -756,107 +791,102 @@ private:
         }
     }
 
-    // 伺服故障恢复（参考 ros2_ws motion_fault_recovery）
-    static void servo_fault_recovery(int slave)
+    // 判断 3~16 号伺服是否全部进入 Operation enabled（状态字低 8 位 == 0x37）
+    static bool all_servos_operation_enabled()
     {
-        if (slave < SERVO_FIRST || slave > SERVO_LAST) return;
-        const ServoPdoOffsets& ofs = servo_pdo_offsets_[slave];
-        if (ofs.status_word == INVALID_SERVO_OFFSET) return;
-
-        uint16_t sw = EC_READ_U16(domain_pd + ofs.status_word);
-        if (sw & 0x0008)  // 故障位
+        for (int s = SERVO_FIRST; s <= SERVO_LAST; ++s)
         {
-            if (!servo_last_fault_state_[slave])
+            if (!servo_is_power_on_[s])
             {
-                servo_last_fault_state_[slave] = 1;
-                servo_fault_recovery_attempts_[slave] = 0;
-                servo_fault_recovery_wait_[slave] = 0;
-            }
-            servo_fault_recovery_wait_[slave]++;
-            if (servo_fault_recovery_wait_[slave] >= SERVO_FAULT_RECOVERY_INTERVAL_CYCLES)
-            {
-                servo_fault_recovery_attempts_[slave]++;
-                servo_fault_recovery_wait_[slave] = 0;
-                if (servo_fault_recovery_attempts_[slave] <= 5 && ofs.control_word != INVALID_SERVO_OFFSET)
-                    EC_WRITE_U16(domain_pd + ofs.control_word, 0x0080);  // 清除故障
+                return false;
             }
         }
-        else
-        {
-            servo_last_fault_state_[slave] = 0;
-        }
+        return true;
     }
 
-    // 伺服上电状态机（参考 ros2_ws motion_power_state_machine）
+    // 伺服上电状态机（参考 CiA 402 状态机，实现与示例 raw_value 逻辑一致）
     static void servo_power_state_machine(int slave, int is_on)
     {
         if (slave < SERVO_FIRST || slave > SERVO_LAST) return;
-        const ServoPdoOffsets& ofs = servo_pdo_offsets_[slave];
-        if (ofs.status_word == INVALID_SERVO_OFFSET || ofs.control_word == INVALID_SERVO_OFFSET) return;
+        const pdo_offset& ofs = servo_offset_[slave];
+        if (ofs.status_word >= INVALID_PDO_OFFSET || ofs.control_word >= INVALID_PDO_OFFSET) return;
 
-        uint16_t sw = EC_READ_U16(domain_pd + ofs.status_word);
-        int32_t actual_pos = (ofs.position_actual_value != INVALID_SERVO_OFFSET) ? EC_READ_S32(domain_pd + ofs.position_actual_value) : 0;
+        // 读取状态字与实际位置
+        uint16_t sw_raw = EC_READ_U16(domain_pd + ofs.status_word);              // 0x6041 原始状态字（16 位）
+        uint16_t raw_value = static_cast<uint16_t>(sw_raw & 0x00ff);             // 仅保留低 8 位（用于故障低 4 位判断）
 
-        if (sw == 0x0000)
+        // 状态字变化时打印一次（用于调试 3~16 号伺服）
+        if (raw_value != servo_status_word_[slave])
         {
-            if (!servo_zero_status_warning_[slave])
-                servo_zero_status_warning_[slave] = 1;
+            servo_status_word_[slave] = raw_value;
+            RCLCPP_INFO(rclcpp::get_logger("ethercat_motor_node"),
+                        "servo %d status_word(raw=0x%04X, low=0x%04X)",
+                        slave,
+                        static_cast<unsigned int>(sw_raw),
+                        static_cast<unsigned int>(raw_value));
         }
-        else
-            servo_zero_status_warning_[slave] = 0;
 
-        if (is_on)
+        int32_t current_position =
+            (ofs.position_actual_value < INVALID_PDO_OFFSET)
+                ? EC_READ_S32(domain_pd + ofs.position_actual_value)             // 0x6064
+                : 0;
+
+        if (!is_on)
         {
-            unsigned char status_low = sw & 0x0f;
-            if (status_low == 0x00)
-            {
-                if (servo_is_power_on_[slave] && sw == 0x0000)
-                    EC_WRITE_U16(domain_pd + ofs.control_word, 0x0f);
-                else
-                    EC_WRITE_U16(domain_pd + ofs.control_word, 0x06);
-                if (ofs.target_position != INVALID_SERVO_OFFSET)
-                    EC_WRITE_S32(domain_pd + ofs.target_position, actual_pos);
-            }
-            else if (status_low == 0x01)
-            {
-                if (servo_is_power_on_[slave])
-                    EC_WRITE_U16(domain_pd + ofs.control_word, 0x07);
-                else
-                    EC_WRITE_U16(domain_pd + ofs.control_word, 0x07);
-                if (ofs.target_position != INVALID_SERVO_OFFSET)
-                    EC_WRITE_S32(domain_pd + ofs.target_position, actual_pos);
-            }
-            else if (status_low == 0x03)
-            {
-                EC_WRITE_U16(domain_pd + ofs.control_word, 0x0f);
-                if (ofs.target_position != INVALID_SERVO_OFFSET)
-                    EC_WRITE_S32(domain_pd + ofs.target_position, actual_pos);
-            }
-            else if (status_low == 0x07)
-            {
-                EC_WRITE_U16(domain_pd + ofs.control_word, 0x0f);
-                servo_is_power_on_[slave] = 1;
-                if (ofs.target_position != INVALID_SERVO_OFFSET)
-                {
-                    EC_WRITE_S32(domain_pd + ofs.target_position, actual_pos);  // 每周期保持目标=实际
-                    if (!servo_initial_target_set_[slave])
-                        servo_initial_target_set_[slave] = 1;
-                }
-            }
-            else
-            {
-                EC_WRITE_U16(domain_pd + ofs.control_word, 0x80);
-                if (ofs.target_position != INVALID_SERVO_OFFSET)
-                    EC_WRITE_S32(domain_pd + ofs.target_position, actual_pos);
-            }
-            if (ofs.mode_of_operation != INVALID_SERVO_OFFSET)
-                EC_WRITE_U8(domain_pd + ofs.mode_of_operation, 8);  // CSP
-        }
-        else
-        {
-            EC_WRITE_U16(domain_pd + ofs.control_word, 0x00);
+            // 断电
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0000);
             servo_is_power_on_[slave] = 0;
+            return;
         }
+
+        // 状态字为 0 直接返回，不做 CiA 402 状态机动作
+        if (raw_value == 0)
+        {
+            return;
+        }
+
+        // CiA 402 状态机转换（使用完整 16 位状态字匹配 0x0250/0x0231/0x0233/0x0037）
+        // 状态：未准备好开机 (0x0250) -> 发送 0x06
+        if (sw_raw == 0x0250)
+        {
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0006);
+            if (ofs.target_position < INVALID_PDO_OFFSET)
+                EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+        }
+
+        // 状态：准备好开机 (0x0231) -> 发送 0x07（开机）
+        if (sw_raw == 0x0231)
+        {
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0007);
+            if (ofs.target_position < INVALID_PDO_OFFSET)
+                EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+        }
+
+        // 状态：已开机 (0x0233) -> 发送 0x0f（启用操作）
+        if (sw_raw == 0x0233)
+        {
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x000f);
+            if (ofs.target_position < INVALID_PDO_OFFSET)
+                EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+        }
+
+        // 状态：操作启用 (低 8 位 == 0x37) -> 持续写入目标位置 = 实际位置
+        if ( (sw_raw & 0x00ff) == 0x0037 )
+        {
+            if (ofs.target_position < INVALID_PDO_OFFSET)
+                EC_WRITE_S32(domain_pd + ofs.target_position, current_position);
+            servo_is_power_on_[slave] = 1;
+        }
+
+        // 故障检测：低 4 位 == 0x8 时，发送 0x80 清除故障（使用低 8 位 raw_value）
+        if ( (raw_value & 0x000F) == 0x0008 )
+        {
+            EC_WRITE_U16(domain_pd + ofs.control_word, 0x0080);
+        }
+
+        // 始终保持运行模式为 CSP (8)
+        if (ofs.mode_of_operation < INVALID_PDO_OFFSET)
+            EC_WRITE_U8(domain_pd + ofs.mode_of_operation, 8);
     }
 
     static void check_domain_state()
@@ -910,12 +940,11 @@ private:
 
             ethercat_data_get();
 
-            // 伺服 3~16 状态机（上电 + 故障恢复，参考 ros2_ws）
+            // 伺服 3~16 状态机（上电 + 故障处理）
             for (int s = SERVO_FIRST; s <= SERVO_LAST; s++)
             {
-                if (servo_pdo_offsets_[s].status_word == INVALID_SERVO_OFFSET)
+                if (servo_offset_[s].status_word >= INVALID_PDO_OFFSET)
                     continue;
-                servo_fault_recovery(s);
                 servo_power_state_machine(s, 1);
             }
 
@@ -1103,16 +1132,11 @@ private:
     static ec_pdo_entry_reg_t domain_regs_in[68 * 2 * SSC_SLAVE_NUM + 1];
 
     // 伺服 3~16 的 PDO 偏移与状态机状态（参考 ros2_ws/igh_ethercat motion.c）
-    static ServoPdoOffsets servo_pdo_offsets_[PHYSICAL_SLAVE_NUM];
+    static pdo_offset servo_offset_[MAX_SLAVE_NUMBER];
     static uint16_t servo_status_word_[PHYSICAL_SLAVE_NUM];
     static uint8_t servo_is_power_on_[PHYSICAL_SLAVE_NUM];
-    static int servo_last_fault_state_[PHYSICAL_SLAVE_NUM];
-    static int servo_fault_recovery_attempts_[PHYSICAL_SLAVE_NUM];
-    static int servo_fault_recovery_wait_[PHYSICAL_SLAVE_NUM];
     static int servo_zero_status_warning_[PHYSICAL_SLAVE_NUM];
     static int servo_initial_target_set_[PHYSICAL_SLAVE_NUM];
-    static constexpr int SERVO_FAULT_RECOVERY_INTERVAL_CYCLES = 1000;  // 约 1 秒（1ms 周期）
-
     static void init_pdo_entries(ec_pdo_entry_info_t* pdo_entries_out, ec_pdo_entry_info_t* pdo_entries_in)
     {
         for (int i = 0; i < 68; i++)
@@ -1267,12 +1291,9 @@ EtherCAT_Msg EthercatMotorNode::rx_msg[SSC_SLAVE_NUM];
 OD_Motor_Msg EthercatMotorNode::rv_motor_msg[SSC_SLAVE_NUM][6];
 PDO_Struct EthercatMotorNode::pdo_struct[SSC_SLAVE_NUM];
 ec_pdo_entry_reg_t EthercatMotorNode::domain_regs_in[68 * 2 * SSC_SLAVE_NUM + 1];
-ServoPdoOffsets EthercatMotorNode::servo_pdo_offsets_[PHYSICAL_SLAVE_NUM];
+pdo_offset EthercatMotorNode::servo_offset_[MAX_SLAVE_NUMBER];
 uint16_t EthercatMotorNode::servo_status_word_[PHYSICAL_SLAVE_NUM] = {0};
 uint8_t EthercatMotorNode::servo_is_power_on_[PHYSICAL_SLAVE_NUM] = {0};
-int EthercatMotorNode::servo_last_fault_state_[PHYSICAL_SLAVE_NUM] = {0};
-int EthercatMotorNode::servo_fault_recovery_attempts_[PHYSICAL_SLAVE_NUM] = {0};
-int EthercatMotorNode::servo_fault_recovery_wait_[PHYSICAL_SLAVE_NUM] = {0};
 int EthercatMotorNode::servo_zero_status_warning_[PHYSICAL_SLAVE_NUM] = {0};
 int EthercatMotorNode::servo_initial_target_set_[PHYSICAL_SLAVE_NUM] = {0};
 std::mutex EthercatMotorNode::cmd_mutex_;

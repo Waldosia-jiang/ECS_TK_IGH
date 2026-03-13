@@ -33,6 +33,7 @@ target_link_libraries(ethercat_motor_lib PUBLIC
 # ROS2 节点
 add_executable(ethercat_motor_node
   ${CMAKE_CURRENT_SOURCE_DIR}/src/ethercat_motor_node.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/servo_pdo_set.c
 )
 ament_target_dependencies(ethercat_motor_node
   rclcpp

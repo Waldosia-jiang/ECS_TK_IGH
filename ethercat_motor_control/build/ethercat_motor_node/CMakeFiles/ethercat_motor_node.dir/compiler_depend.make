@@ -21,6 +21,7 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/main.h \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/math_ops.h \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/motor_control.h \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/servo_pdo_set.h \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp \
@@ -408,6 +409,7 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_defines.h \
   /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/functional_hash.h \
   /usr/include/c++/11/bits/hash_bytes.h \
@@ -510,6 +512,7 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
   /usr/include/c++/11/ext/numeric_traits.h \
   /usr/include/c++/11/ext/string_conversions.h \
   /usr/include/c++/11/ext/type_traits.h \
+  /usr/include/c++/11/fstream \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/future \
   /usr/include/c++/11/initializer_list \
@@ -714,8 +717,10 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
@@ -747,6 +752,87 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
   /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
   /usr/local/include/ecrt.h
 
+CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/src/servo_pdo_set.c \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/servo_pdo_set.h \
+  /usr/include/alloca.h \
+  /usr/include/asm-generic/bitsperlong.h \
+  /usr/include/asm-generic/posix_types.h \
+  /usr/include/asm-generic/socket.h \
+  /usr/include/asm-generic/sockios.h \
+  /usr/include/endian.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/netinet/in.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+  /usr/include/x86_64-linux-gnu/asm/socket.h \
+  /usr/include/x86_64-linux-gnu/asm/sockios.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/in.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+  /usr/include/x86_64-linux-gnu/bits/socket.h \
+  /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/sys/socket.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
+  /usr/local/include/ecrt.h
+
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
@@ -761,8 +847,6 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/x86_64-linux-gnu/sys/resource.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
@@ -780,7 +864,11 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -1018,7 +1106,9 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /usr/include/c++/11/string_view:
 
-/opt/ros/humble/include/rclcpp/rclcpp/timer.hpp:
+/usr/include/c++/11/streambuf:
+
+/usr/include/c++/11/stdlib.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_traits.hpp:
 
@@ -1107,6 +1197,10 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/create_intra_process_buffer.hpp:
+
+/usr/include/c++/11/string:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/intra_process_buffer.hpp:
 
 /usr/include/c++/11/csignal:
 
@@ -1290,6 +1384,10 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__traits.hpp:
 
+/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:
+
+/opt/ros/humble/include/rcpputils/rcpputils/scope_exit.hpp:
+
 /opt/ros/humble/include/rcl/rcl/node.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_wait_set_mask.hpp:
@@ -1338,10 +1436,6 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/intra_process_buffer.hpp:
-
-/usr/include/c++/11/string:
-
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__type_support.hpp:
@@ -1354,10 +1448,6 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rclcpp/rclcpp/typesupport_helpers.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:
-
-/opt/ros/humble/include/rcpputils/rcpputils/scope_exit.hpp:
-
 /opt/ros/humble/include/rcl/rcl/logging_rosout.h:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp:
@@ -1367,6 +1457,24 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__struct.hpp:
 
 /usr/include/c++/11/bits/std_mutex.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_parameters_interface.hpp:
+
+/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/opt/ros/humble/include/rmw/rmw/qos_string_conversions.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/service.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
+
+/opt/ros/humble/include/rcl/rcl/visibility_control.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/message_info.hpp:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__struct.hpp:
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__struct.hpp:
 
@@ -1399,6 +1507,16 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /opt/ros/humble/include/rmw/rmw/rmw.h:
 
 /opt/ros/humble/include/rcl/rcl/wait.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/socket_type.h:
+
+/usr/include/c++/11/bits/exception_defines.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/subscription_base.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/parameter_map.hpp:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/metric_details_interface.hpp:
 
@@ -1458,8 +1576,6 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__type_support.hpp:
 
-/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__struct.hpp:
-
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/collector.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_timers_interface_traits.hpp:
@@ -1482,6 +1598,18 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_event_handler.hpp:
 
+/opt/ros/humble/include/rclcpp/rclcpp/intra_process_setting.hpp:
+
+/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp:
+
+/usr/include/limits.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/dynamic_storage.hpp:
+
+/opt/ros/humble/include/rcl/rcl/client.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__type_support.hpp:
+
 /opt/ros/humble/include/rclcpp/rclcpp/guard_condition.hpp:
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/config.h:
@@ -1494,17 +1622,15 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/intra_process_setting.hpp:
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/servo_pdo_set.h:
 
-/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
 
-/usr/include/limits.h:
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/leg_cmd.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/dynamic_storage.hpp:
+/usr/include/c++/11/bits/predefined_ops.h:
 
-/opt/ros/humble/include/rcl/rcl/client.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__type_support.hpp:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__type_support.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_client.hpp:
 
@@ -1538,43 +1664,9 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rclcpp/rclcpp/waitable.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__type_support.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_parameters_interface.hpp:
-
-/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
-
-/opt/ros/humble/include/rmw/rmw/qos_string_conversions.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/socket_type.h:
-
-/usr/include/c++/11/bits/exception_defines.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/subscription_base.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/parameter_map.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/service.hpp:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
-
-/opt/ros/humble/include/rcl/rcl/visibility_control.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/message_info.hpp:
-
 /opt/ros/humble/include/rcl/rcl/service.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__struct.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
-
-/opt/ros/humble/include/rmw/rmw/events_statuses/events_statuses.h:
-
-/usr/include/c++/11/bits/list.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/resource.h:
 
@@ -1629,6 +1721,10 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface_traits.hpp:
 
 /opt/ros/humble/include/rcutils/rcutils/types.h:
+
+/usr/include/x86_64-linux-gnu/sys/resource.h:
+
+/usr/include/c++/11/fstream:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp:
 
@@ -1725,6 +1821,14 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/timer.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
+
+/usr/include/c++/11/bits/list.tcc:
+
+/opt/ros/humble/include/rmw/rmw/events_statuses/events_statuses.h:
 
 /usr/include/features.h:
 
@@ -1870,8 +1974,6 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /opt/ros/humble/include/rmw/rmw/impl/cpp/demangle.hpp:
 
-/usr/include/c++/11/stdlib.h:
-
 /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h:
 
 /opt/ros/humble/include/rmw/rmw/localhost.h:
@@ -1907,12 +2009,6 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /opt/ros/humble/include/rmw/rmw/subscription_options.h:
 
 /usr/include/asm-generic/errno-base.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
-
-/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/leg_cmd.hpp:
-
-/usr/include/c++/11/bits/predefined_ops.h:
 
 /usr/include/wctype.h:
 
@@ -2000,6 +2096,8 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 
 /usr/include/asm-generic/posix_types.h:
 
+/usr/include/c++/11/bits/fstream.tcc:
+
 /usr/include/c++/11/algorithm:
 
 /usr/include/c++/11/array:
@@ -2061,6 +2159,8 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /usr/include/c++/11/bits/ostream.tcc:
 
 /usr/include/c++/11/bits/postypes.h:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/src/servo_pdo_set.c:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__struct.hpp:
 
@@ -2235,5 +2335,3 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p3003911
 /usr/include/c++/11/shared_mutex:
 
 /usr/include/c++/11/sstream:
-
-/usr/include/c++/11/streambuf:

@@ -295,6 +295,30 @@ src/motor_control.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_lib.dir/build.make CMakeFiles/ethercat_motor_lib.dir/src/motor_control.c.s
 .PHONY : src/motor_control.c.s
 
+src/servo_pdo_set.o: src/servo_pdo_set.c.o
+.PHONY : src/servo_pdo_set.o
+
+# target to build an object file
+src/servo_pdo_set.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_node.dir/build.make CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o
+.PHONY : src/servo_pdo_set.c.o
+
+src/servo_pdo_set.i: src/servo_pdo_set.c.i
+.PHONY : src/servo_pdo_set.i
+
+# target to preprocess a source file
+src/servo_pdo_set.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_node.dir/build.make CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.i
+.PHONY : src/servo_pdo_set.c.i
+
+src/servo_pdo_set.s: src/servo_pdo_set.c.s
+.PHONY : src/servo_pdo_set.s
+
+# target to generate assembly for a file
+src/servo_pdo_set.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_node.dir/build.make CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.s
+.PHONY : src/servo_pdo_set.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -321,6 +345,9 @@ help:
 	@echo "... src/motor_control.o"
 	@echo "... src/motor_control.i"
 	@echo "... src/motor_control.s"
+	@echo "... src/servo_pdo_set.o"
+	@echo "... src/servo_pdo_set.i"
+	@echo "... src/servo_pdo_set.s"
 .PHONY : help
 
 

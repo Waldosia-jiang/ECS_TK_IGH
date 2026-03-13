@@ -186,12 +186,12 @@ CMakeFiles/ethercat_motor_lib.dir/clean:
 CMakeFiles/ethercat_motor_node.dir/all: CMakeFiles/ethercat_motor_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_node.dir/build.make CMakeFiles/ethercat_motor_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_node.dir/build.make CMakeFiles/ethercat_motor_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles --progress-num=4,5 "Built target ethercat_motor_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles --progress-num=4,5,6 "Built target ethercat_motor_node"
 .PHONY : CMakeFiles/ethercat_motor_node.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ethercat_motor_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ethercat_motor_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles 0
 .PHONY : CMakeFiles/ethercat_motor_node.dir/rule
@@ -203,7 +203,7 @@ ethercat_motor_node: CMakeFiles/ethercat_motor_node.dir/rule
 # codegen rule for target.
 CMakeFiles/ethercat_motor_node.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ethercat_motor_node.dir/build.make CMakeFiles/ethercat_motor_node.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles --progress-num=4,5 "Finished codegen for target ethercat_motor_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/build/ethercat_motor_node/CMakeFiles --progress-num=4,5,6 "Finished codegen for target ethercat_motor_node"
 .PHONY : CMakeFiles/ethercat_motor_node.dir/codegen
 
 # clean rule for target.
