@@ -12,6 +12,10 @@ module dro_hg {
       uint8 mode;
 
       @verbatim (language="comment", text=
+        "从站的站号")
+      uint8 num;
+
+      @verbatim (language="comment", text=
         "关节位置，rad")
       float q;
 

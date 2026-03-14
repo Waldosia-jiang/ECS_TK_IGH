@@ -61,6 +61,7 @@ class MotorState(metaclass=Metaclass_MotorState):
 
     __slots__ = [
         '_mode',
+        '_num',
         '_q',
         '_dq',
         '_current',
@@ -70,6 +71,7 @@ class MotorState(metaclass=Metaclass_MotorState):
 
     _fields_and_field_types = {
         'mode': 'uint8',
+        'num': 'uint8',
         'q': 'float',
         'dq': 'float',
         'current': 'float',
@@ -78,6 +80,7 @@ class MotorState(metaclass=Metaclass_MotorState):
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
         rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
@@ -91,6 +94,7 @@ class MotorState(metaclass=Metaclass_MotorState):
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.mode = kwargs.get('mode', int())
+        self.num = kwargs.get('num', int())
         self.q = kwargs.get('q', float())
         self.dq = kwargs.get('dq', float())
         self.current = kwargs.get('current', float())
@@ -131,6 +135,8 @@ class MotorState(metaclass=Metaclass_MotorState):
             return False
         if self.mode != other.mode:
             return False
+        if self.num != other.num:
+            return False
         if self.q != other.q:
             return False
         if self.dq != other.dq:
@@ -162,6 +168,21 @@ class MotorState(metaclass=Metaclass_MotorState):
             assert value >= 0 and value < 256, \
                 "The 'mode' field must be an unsigned integer in [0, 255]"
         self._mode = value
+
+    @builtins.property
+    def num(self):
+        """Message field 'num'."""
+        return self._num
+
+    @num.setter
+    def num(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'num' field must be of type 'int'"
+            assert value >= 0 and value < 256, \
+                "The 'num' field must be an unsigned integer in [0, 255]"
+        self._num = value
 
     @builtins.property
     def q(self):

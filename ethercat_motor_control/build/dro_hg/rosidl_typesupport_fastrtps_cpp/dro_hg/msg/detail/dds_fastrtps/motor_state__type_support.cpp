@@ -34,6 +34,8 @@ cdr_serialize(
 {
   // Member: mode
   cdr << ros_message.mode;
+  // Member: num
+  cdr << ros_message.num;
   // Member: q
   cdr << ros_message.q;
   // Member: dq
@@ -57,6 +59,9 @@ cdr_deserialize(
 {
   // Member: mode
   cdr >> ros_message.mode;
+
+  // Member: num
+  cdr >> ros_message.num;
 
   // Member: q
   cdr >> ros_message.q;
@@ -94,6 +99,12 @@ get_serialized_size(
   // Member: mode
   {
     size_t item_size = sizeof(ros_message.mode);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: num
+  {
+    size_t item_size = sizeof(ros_message.num);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -153,6 +164,14 @@ max_serialized_size_MotorState(
 
 
   // Member: mode
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: num
   {
     size_t array_size = 1;
 

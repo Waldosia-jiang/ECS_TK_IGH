@@ -45,7 +45,11 @@ public:
   }
 
   ~IghEthercatNode() override {
+    RCLCPP_INFO(get_logger(), "Shutting down: releasing resources and clearing data...");
+    if (timer_)
+      timer_->cancel();
     example_ros2_stop();
+    RCLCPP_INFO(get_logger(), "EtherCAT resources released, node shutdown complete.");
   }
 
 private:

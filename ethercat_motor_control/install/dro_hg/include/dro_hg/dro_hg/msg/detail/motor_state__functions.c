@@ -18,6 +18,7 @@ dro_hg__msg__MotorState__init(dro_hg__msg__MotorState * msg)
     return false;
   }
   // mode
+  // num
   // q
   // dq
   // current
@@ -33,6 +34,7 @@ dro_hg__msg__MotorState__fini(dro_hg__msg__MotorState * msg)
     return;
   }
   // mode
+  // num
   // q
   // dq
   // current
@@ -48,6 +50,10 @@ dro_hg__msg__MotorState__are_equal(const dro_hg__msg__MotorState * lhs, const dr
   }
   // mode
   if (lhs->mode != rhs->mode) {
+    return false;
+  }
+  // num
+  if (lhs->num != rhs->num) {
     return false;
   }
   // q
@@ -85,6 +91,8 @@ dro_hg__msg__MotorState__copy(
   }
   // mode
   output->mode = input->mode;
+  // num
+  output->num = input->num;
   // q
   output->q = input->q;
   // dq

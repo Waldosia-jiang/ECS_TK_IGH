@@ -76,7 +76,7 @@ void dro_hg__msg__MotorState__rosidl_typesupport_introspection_c__assign_functio
   *item = *value;
 }
 
-static rosidl_typesupport_introspection_c__MessageMember dro_hg__msg__MotorState__rosidl_typesupport_introspection_c__MotorState_message_member_array[6] = {
+static rosidl_typesupport_introspection_c__MessageMember dro_hg__msg__MotorState__rosidl_typesupport_introspection_c__MotorState_message_member_array[7] = {
   {
     "mode",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_UINT8,  // type
@@ -86,6 +86,23 @@ static rosidl_typesupport_introspection_c__MessageMember dro_hg__msg__MotorState
     0,  // array size
     false,  // is upper bound
     offsetof(dro_hg__msg__MotorState, mode),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "num",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_UINT8,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(dro_hg__msg__MotorState, num),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -184,7 +201,7 @@ static rosidl_typesupport_introspection_c__MessageMember dro_hg__msg__MotorState
 static const rosidl_typesupport_introspection_c__MessageMembers dro_hg__msg__MotorState__rosidl_typesupport_introspection_c__MotorState_message_members = {
   "dro_hg__msg",  // message namespace
   "MotorState",  // message name
-  6,  // number of fields
+  7,  // number of fields
   sizeof(dro_hg__msg__MotorState),
   dro_hg__msg__MotorState__rosidl_typesupport_introspection_c__MotorState_message_member_array,  // message members
   dro_hg__msg__MotorState__rosidl_typesupport_introspection_c__MotorState_init_function,  // function to initialize message memory (memory has to be allocated)

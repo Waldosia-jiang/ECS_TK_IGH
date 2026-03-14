@@ -23,6 +23,8 @@ typedef struct dro_hg__msg__MotorState
 {
   /// 运动模式 1、位置控制；3、速度控制；4、力控模式；8、csp模式；10、cst模式
   uint8_t mode;
+  /// 从站的站号
+  uint8_t num;
   /// 关节位置，rad
   float q;
   /// 速度，rad/s

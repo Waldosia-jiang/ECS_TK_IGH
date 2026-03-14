@@ -32,6 +32,13 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
+  // member: num
+  {
+    out << "num: ";
+    rosidl_generator_traits::value_to_yaml(msg.num, out);
+    out << ", ";
+  }
+
   // member: q
   {
     out << "q: ";
@@ -90,6 +97,16 @@ inline void to_block_style_yaml(
     }
     out << "mode: ";
     rosidl_generator_traits::value_to_yaml(msg.mode, out);
+    out << "\n";
+  }
+
+  // member: num
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "num: ";
+    rosidl_generator_traits::value_to_yaml(msg.num, out);
     out << "\n";
   }
 

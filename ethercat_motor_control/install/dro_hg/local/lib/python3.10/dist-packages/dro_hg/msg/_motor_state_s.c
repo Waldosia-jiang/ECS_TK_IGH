@@ -62,6 +62,15 @@ bool dro_hg__msg__motor_state__convert_from_py(PyObject * _pymsg, void * _ros_me
     ros_message->mode = (uint8_t)PyLong_AsUnsignedLong(field);
     Py_DECREF(field);
   }
+  {  // num
+    PyObject * field = PyObject_GetAttrString(_pymsg, "num");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->num = (uint8_t)PyLong_AsUnsignedLong(field);
+    Py_DECREF(field);
+  }
   {  // q
     PyObject * field = PyObject_GetAttrString(_pymsg, "q");
     if (!field) {
@@ -149,6 +158,17 @@ PyObject * dro_hg__msg__motor_state__convert_to_py(void * raw_ros_message)
     field = PyLong_FromUnsignedLong(ros_message->mode);
     {
       int rc = PyObject_SetAttrString(_pymessage, "mode", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // num
+    PyObject * field = NULL;
+    field = PyLong_FromUnsignedLong(ros_message->num);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "num", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

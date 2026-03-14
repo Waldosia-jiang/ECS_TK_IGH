@@ -3,10 +3,15 @@
 
 CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/src/ethercat_motor_node.cpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/arm_cmd.hpp \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/arm_state.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__builder.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__struct.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__traits.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__type_support.hpp \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__builder.hpp \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__struct.hpp \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__traits.hpp \
+  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__type_support.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__builder.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__struct.hpp \
   /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__traits.hpp \
@@ -977,10 +982,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /usr/include/x86_64-linux-gnu/bits/mman-map-flags-generic.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
-
-/usr/include/x86_64-linux-gnu/bits/mman-linux.h:
-
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
@@ -1119,7 +1120,15 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /usr/include/c++/11/ratio:
 
-/opt/ros/humble/include/rclcpp/rclcpp/subscription_content_filter_options.hpp:
+/usr/include/c++/11/pstl/pstl_config.h:
+
+/usr/include/c++/11/pstl/glue_numeric_defs.h:
+
+/usr/include/c++/11/pstl/glue_memory_defs.h:
+
+/usr/include/c++/11/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/11/pstl/execution_defs.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:
 
@@ -1148,8 +1157,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /usr/include/x86_64-linux-gnu/bits/mman.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_time_source_interface.hpp:
-
-/usr/include/c++/11/pstl/glue_numeric_defs.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_logging_interface.hpp:
 
@@ -1206,8 +1213,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/intra_process_buffer.hpp:
 
 /usr/include/c++/11/csignal:
-
-/usr/include/c++/11/pstl/glue_memory_defs.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/buffer_implementation_base.hpp:
 
@@ -1295,15 +1300,9 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_client.hpp:
 
-/usr/include/c++/11/pstl/glue_algorithm_defs.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/create_timer.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_service.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/get_message_type_support_handle.hpp:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__type_support.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/generic_subscription.hpp:
 
@@ -1393,31 +1392,33 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__type_support.hpp:
 
-/opt/ros/humble/include/rcl/rcl/graph.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__traits.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__traits.hpp:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__struct.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameter_types.hpp:
+/opt/ros/humble/include/rcl/rcl/macros.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/subscription_intra_process_base.hpp:
+/usr/include/c++/11/bits/invoke.h:
 
-/opt/ros/humble/include/rcl/rcl/node_options.h:
+/opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/sequential_synchronization.hpp:
 
-/usr/include/c++/11/bits/std_thread.h:
+/opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
 
-/usr/include/errno.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp:
 
-/usr/include/c++/11/bits/alloc_traits.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__type_support.hpp:
 
-/opt/ros/humble/include/rcl/rcl/allocator.h:
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__traits.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface.hpp:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__traits.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__type_support.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_descriptor.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/floating_point_range.hpp:
 
@@ -1431,6 +1432,12 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcl/rcl/domain_id.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
+
+/usr/include/x86_64-linux-gnu/bits/mman-linux.h:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/arm_state.hpp:
+
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__traits.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
@@ -1443,8 +1450,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/metric_details_interface.hpp:
 
-/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp:
-
 /opt/ros/humble/include/rclcpp/rclcpp/intra_process_setting.hpp:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp:
@@ -1453,37 +1458,13 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/dynamic_storage.hpp:
 
-/usr/include/c++/11/bits/invoke.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__type_support.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/sequential_synchronization.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
-/opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
+/usr/include/signal.h:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp:
-
-/opt/ros/humble/include/rcl/rcl/node.h:
-
-/opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameters.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/parameter_value.hpp:
-
-/usr/include/c++/11/bits/align.h:
-
-/opt/ros/humble/include/rcl/rcl/init_options.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:
-
-/opt/ros/humble/include/rcpputils/rcpputils/join.hpp:
-
-/opt/ros/humble/include/rcl/rcl/subscription.h:
-
-/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/src/ethercat_motor_node.cpp:
-
-/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__type_support.hpp:
+/opt/ros/humble/include/rclcpp/rclcpp/waitable.hpp:
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__struct.hpp:
 
@@ -1505,22 +1486,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/arm_cmd.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/socket_type.h:
-
-/usr/include/c++/11/bits/exception_defines.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/subscription_base.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/parameter_map.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/service.hpp:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
-
-/opt/ros/humble/include/rcl/rcl/visibility_control.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/message_info.hpp:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/collector.hpp:
@@ -1528,6 +1493,36 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_timers_interface_traits.hpp:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameter_types.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__traits.hpp:
+
+/opt/ros/humble/include/rcl/rcl/graph.h:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/motor_control.h:
+
+/opt/ros/humble/include/rcutils/rcutils/types.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:
+
+/opt/ros/humble/include/rcl/rcl/init_options.h:
+
+/opt/ros/humble/include/rcpputils/rcpputils/join.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/resource.h:
+
+/usr/include/c++/11/fstream:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_cmd__type_support.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/socket_type.h:
+
+/usr/include/c++/11/bits/exception_defines.h:
+
+/opt/ros/humble/include/rcl/rcl/node.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:
 
@@ -1537,27 +1532,23 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/visibility_control.hpp:
 
-/usr/include/c++/11/pstl/pstl_config.h:
-
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__struct.hpp:
 
 /usr/include/c++/11/bits/vector.tcc:
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_state__struct.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/parameter_service.hpp:
+/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/context.hpp:
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__builder.hpp:
 
-/usr/include/c++/11/thread:
+/usr/include/unistd.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/generic_publisher.hpp:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__struct.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/message_memory_strategy.hpp:
+/usr/include/c++/11/bits/erase_if.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/create_publisher.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/node_options.hpp:
+/usr/include/c++/11/bits/ptr_traits.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/topic_statistics_collector.hpp:
 
@@ -1566,6 +1557,10 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /usr/include/c++/11/bits/stl_set.h:
 
 /opt/ros/humble/include/rcl/rcl/types.h:
+
+/opt/ros/humble/include/rcl/rcl/node_options.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/subscription_intra_process_base.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/signum-arch.h:
 
@@ -1587,6 +1582,10 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__builder.hpp:
 
+/usr/include/c++/11/bits/ostream.tcc:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/ring_buffer_implementation.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__builder.hpp:
 
 /opt/ros/humble/include/rcutils/rcutils/qsort.h:
@@ -1599,13 +1598,25 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcl/rcl/wait.h:
 
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/src/ethercat_motor_node.cpp:
+
+/opt/ros/humble/include/rcl/rcl/subscription.h:
+
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_cmd__struct.hpp:
 
-/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__traits.hpp:
+/opt/ros/humble/include/rclcpp/rclcpp/parameter_service.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__type_support.hpp:
+/opt/ros/humble/include/rclcpp/rclcpp/context.hpp:
 
-/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/motor_control.h:
+/usr/include/c++/11/thread:
+
+/opt/ros/humble/include/rclcpp/rclcpp/generic_publisher.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/message_memory_strategy.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/create_publisher.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/node_options.hpp:
 
 /usr/include/c++/11/ctime:
 
@@ -1621,9 +1632,13 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__type_support.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__struct.hpp:
+/usr/include/x86_64-linux-gnu/bits/mman-shared.h:
 
-/opt/ros/humble/include/rcl/rcl/macros.h:
+/opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/type_support_decl.hpp:
+
+/opt/ros/humble/include/rcl/rcl/arguments.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__builder.hpp:
 
@@ -1643,21 +1658,37 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
+/usr/include/errno.h:
+
+/opt/ros/humble/include/rcl/rcl/allocator.h:
+
+/usr/include/c++/11/bits/alloc_traits.h:
+
+/usr/include/c++/11/bits/std_thread.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface_traits.hpp:
+
+/opt/ros/humble/include/rcl/rcl/guard_condition.h:
+
+/opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameters.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/parameter_value.hpp:
+
+/usr/include/c++/11/bits/align.h:
+
 /opt/ros/humble/include/rclcpp/rclcpp/create_client.hpp:
 
 /usr/include/asm-generic/errno.h:
 
+/opt/ros/humble/include/rclcpp/rclcpp/subscription_content_filter_options.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__builder.hpp:
 
 /opt/ros/humble/include/rmw/rmw/subscription_content_filter_options.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__type_support.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/signal.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/waitable.hpp:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_age.hpp:
 
@@ -1677,31 +1708,23 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter.hpp:
 
-/usr/include/c++/11/pstl/execution_defs.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/qos.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_value.hpp:
 
-/usr/include/unistd.h:
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__traits.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__struct.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/mman-shared.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:
-
-/opt/ros/humble/include/rcl/rcl/arguments.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/type_support_decl.hpp:
-
-/usr/include/c++/11/bits/erase_if.h:
-
-/usr/include/c++/11/bits/ptr_traits.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__type_support.hpp:
 
 /opt/ros/humble/include/rcl/rcl/service.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__struct.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
+
+/opt/ros/humble/include/rcl/rcl/visibility_control.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/service.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/resource.h:
 
@@ -1727,8 +1750,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__traits.hpp:
 
-/opt/ros/humble/include/rclcpp/rclcpp/serialized_message.hpp:
-
 /opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
@@ -1744,16 +1765,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__traits.hpp:
 
 /usr/include/c++/11/bits/locale_classes.h:
-
-/opt/ros/humble/include/rcl/rcl/guard_condition.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface_traits.hpp:
-
-/opt/ros/humble/include/rcutils/rcutils/types.h:
-
-/usr/include/x86_64-linux-gnu/sys/resource.h:
-
-/usr/include/c++/11/fstream:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp:
 
@@ -1783,8 +1794,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcutils/rcutils/types/hash_map.h:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_type__type_support.hpp:
-
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__builder.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__type_support.hpp:
@@ -1796,6 +1805,8 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__struct.hpp:
 
 /usr/include/c++/11/bits/stl_multiset.h:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__struct.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/list_parameters_result.hpp:
 
@@ -1823,11 +1834,21 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcpputils/rcpputils/visibility_control.hpp:
 
-/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp:
-
 /opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:
 
+/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/describe_parameters.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/get_message_type_support_handle.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__type_support.hpp:
+
+/home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_state__type_support.hpp:
+
+/usr/include/c++/11/bits/sstream.tcc:
+
+/usr/include/c++/11/new:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__builder.hpp:
 
@@ -1837,9 +1858,11 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__traits.hpp:
+/opt/ros/humble/include/rclcpp/rclcpp/serialized_message.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__traits.hpp:
+/opt/ros/humble/include/rclcpp/rclcpp/parameter_map.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/subscription_base.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_factory.hpp:
 
@@ -1883,9 +1906,9 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /usr/include/c++/11/unordered_map:
 
-/opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp:
-
 /opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set.hpp:
 
@@ -2183,10 +2206,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 
 /usr/include/c++/11/iostream:
 
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/ring_buffer_implementation.hpp:
-
-/usr/include/c++/11/bits/ostream.tcc:
-
 /usr/include/c++/11/bits/postypes.h:
 
 /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/src/servo_pdo_set.c:
@@ -2216,10 +2235,6 @@ CMakeFiles/ethercat_motor_node.dir/src/servo_pdo_set.c.o: /home/p30039115276/ECS
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/c++/11/bits/specfun.h:
-
-/usr/include/c++/11/bits/sstream.tcc:
-
-/usr/include/c++/11/new:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 

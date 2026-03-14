@@ -969,15 +969,36 @@ int example_ros2_start(int cpuid, unsigned int cycletime_ns)
 
 void example_ros2_stop(void)
 {
+    printf("Shutting down: releasing EtherCAT resources and clearing data...\n");
+
+    /* 1. 停止周期任务线程 */
     if (run) {
         run = 0;
         pthread_join(cyclic_thread, NULL);
     }
 
+    /* 2. 释放 EtherCAT 主站（会释放 domain 等关联资源） */
     if (master) {
         ecrt_release_master(master);
         master = NULL;
     }
     domain = NULL;
     p_domain = NULL;
+
+    /* 3. 清零从站配置指针与 PDO 偏移，避免残留 */
+    {
+        int i;
+        for (i = 0; i < MAX_SLAVE_NUMBER; i++)
+            slave_configs[i] = NULL;
+        memset(offset, 0xff, sizeof(offset));
+    }
+
+    /* 4. 清零运动控制数据与从站信息 */
+    memset(motion_data, 0, sizeof(motion_data));
+    slave_count = 0;
+    memset(vendor_id, 0, sizeof(vendor_id));
+    memset(product_code, 0, sizeof(product_code));
+    memset(is_servo_slave, 0, sizeof(is_servo_slave));
+
+    printf("EtherCAT master released, buffers cleared, shutdown complete.\n");
 }

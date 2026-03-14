@@ -54,6 +54,11 @@ static bool _MotorState__cdr_serialize(
     cdr << ros_message->mode;
   }
 
+  // Field name: num
+  {
+    cdr << ros_message->num;
+  }
+
   // Field name: q
   {
     cdr << ros_message->q;
@@ -96,6 +101,11 @@ static bool _MotorState__cdr_deserialize(
   // Field name: mode
   {
     cdr >> ros_message->mode;
+  }
+
+  // Field name: num
+  {
+    cdr >> ros_message->num;
   }
 
   // Field name: q
@@ -145,6 +155,12 @@ size_t get_serialized_size_dro_hg__msg__MotorState(
   // field.name mode
   {
     size_t item_size = sizeof(ros_message->mode);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name num
+  {
+    size_t item_size = sizeof(ros_message->num);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -211,6 +227,13 @@ size_t max_serialized_size_dro_hg__msg__MotorState(
   is_plain = true;
 
   // member: mode
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+  // member: num
   {
     size_t array_size = 1;
 

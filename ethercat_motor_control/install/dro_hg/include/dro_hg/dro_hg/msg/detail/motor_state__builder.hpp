@@ -101,16 +101,32 @@ private:
   ::dro_hg::msg::MotorState msg_;
 };
 
+class Init_MotorState_num
+{
+public:
+  explicit Init_MotorState_num(::dro_hg::msg::MotorState & msg)
+  : msg_(msg)
+  {}
+  Init_MotorState_q num(::dro_hg::msg::MotorState::_num_type arg)
+  {
+    msg_.num = std::move(arg);
+    return Init_MotorState_q(msg_);
+  }
+
+private:
+  ::dro_hg::msg::MotorState msg_;
+};
+
 class Init_MotorState_mode
 {
 public:
   Init_MotorState_mode()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_MotorState_q mode(::dro_hg::msg::MotorState::_mode_type arg)
+  Init_MotorState_num mode(::dro_hg::msg::MotorState::_mode_type arg)
   {
     msg_.mode = std::move(arg);
-    return Init_MotorState_q(msg_);
+    return Init_MotorState_num(msg_);
   }
 
 private:

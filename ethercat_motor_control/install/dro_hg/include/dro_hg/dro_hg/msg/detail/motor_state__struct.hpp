@@ -40,6 +40,7 @@ struct MotorState_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->mode = 0;
+      this->num = 0;
       this->q = 0.0f;
       this->dq = 0.0f;
       this->current = 0.0f;
@@ -55,6 +56,7 @@ struct MotorState_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->mode = 0;
+      this->num = 0;
       this->q = 0.0f;
       this->dq = 0.0f;
       this->current = 0.0f;
@@ -67,6 +69,9 @@ struct MotorState_
   using _mode_type =
     uint8_t;
   _mode_type mode;
+  using _num_type =
+    uint8_t;
+  _num_type num;
   using _q_type =
     float;
   _q_type q;
@@ -88,6 +93,12 @@ struct MotorState_
     const uint8_t & _arg)
   {
     this->mode = _arg;
+    return *this;
+  }
+  Type & set__num(
+    const uint8_t & _arg)
+  {
+    this->num = _arg;
     return *this;
   }
   Type & set__q(
@@ -164,6 +175,9 @@ struct MotorState_
   bool operator==(const MotorState_ & other) const
   {
     if (this->mode != other.mode) {
+      return false;
+    }
+    if (this->num != other.num) {
       return false;
     }
     if (this->q != other.q) {

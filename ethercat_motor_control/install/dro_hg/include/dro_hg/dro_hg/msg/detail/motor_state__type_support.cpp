@@ -75,7 +75,7 @@ void assign_function__MotorState__temperature(
   item = value;
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorState_message_member_array[6] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorState_message_member_array[7] = {
   {
     "mode",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
@@ -85,6 +85,23 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorState_me
     0,  // array size
     false,  // is upper bound
     offsetof(dro_hg::msg::MotorState, mode),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "num",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(dro_hg::msg::MotorState, num),  // bytes offset in struct
     nullptr,  // default value
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
@@ -183,7 +200,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorState_me
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers MotorState_message_members = {
   "dro_hg::msg",  // message namespace
   "MotorState",  // message name
-  6,  // number of fields
+  7,  // number of fields
   sizeof(dro_hg::msg::MotorState),
   MotorState_message_member_array,  // message members
   MotorState_init_function,  // function to initialize message memory (memory has to be allocated)
