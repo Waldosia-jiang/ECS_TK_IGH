@@ -37,7 +37,7 @@ static int pdo_set_add_pdo_mapping(ec_slave_config_t *slave,
     }
 }
 
-// CSP 仅位置模式：Rx 不含 0x6071，与 ros2_ws CSP 一致，避免驱动器将 0x6071 当转矩限幅/前馈导致保持转矩过大与抖动
+// CSP 扩展模式：Rx 映射 6040+6060+607A+60FF+6071+60B2，Tx 映射 6041+6061+6064+606C+6077
 static int pdo_set_configure_rw_template_csp_no_torque(ec_slave_config_t *slave,
                                                         ec_domain_t *domain,
                                                         int slave_index,
@@ -45,14 +45,18 @@ static int pdo_set_configure_rw_template_csp_no_torque(ec_slave_config_t *slave,
                                                         uint16_t rx_pdo,
                                                         uint16_t tx_pdo)
 {
-    printf("从站 %d: RW模板配置PDO映射 (RX=0x%04X, TX=0x%04X)，CSP 仅位置（无 0x6071，与 ros2_ws 一致）\n", slave_index, rx_pdo, tx_pdo);
+    printf("从站 %d: RW模板配置PDO映射 (RX=0x%04X, TX=0x%04X)，CSP 扩展 (6040+6060+607A+60FF+6071+60B2 / 6041+6061+6064+606C+6077)\n",
+           slave_index, rx_pdo, tx_pdo);
 
     ecrt_slave_config_sdo8(slave, 0x6060, 0x00, 8);
 
-    // RxPDO: 6040 + 6060 + 607A（不映射 0x6071，与 ros2_ws CSP 行为一致，减小保持转矩/抖动）
+    // RxPDO: 6040 + 6060 + 607A + 60FF + 6071 + 60B2
     pdo_set_add_pdo_mapping(slave, rx_pdo, 0x6040, 0x00, 16, "控制字");
     pdo_set_add_pdo_mapping(slave, rx_pdo, 0x6060, 0x00, 8,  "运行模式");
     pdo_set_add_pdo_mapping(slave, rx_pdo, 0x607a, 0x00, 32, "目标位置");
+    pdo_set_add_pdo_mapping(slave, rx_pdo, 0x60ff, 0x00, 32, "目标速度");
+    pdo_set_add_pdo_mapping(slave, rx_pdo, 0x6071, 0x00, 16, "目标转矩");
+    pdo_set_add_pdo_mapping(slave, rx_pdo, 0x60b2, 0x00, 16, "转矩偏移");
 
     // TxPDO: 6041 + 6061 + 6064 + 606C + 6077
     pdo_set_add_pdo_mapping(slave, tx_pdo, 0x6041, 0x00, 16, "状态字");
@@ -67,9 +71,12 @@ static int pdo_set_configure_rw_template_csp_no_torque(ec_slave_config_t *slave,
         ecrt_slave_config_reg_pdo_entry(slave, 0x6060, 0x00, domain, NULL);
     offset[slave_index].target_position =
         ecrt_slave_config_reg_pdo_entry(slave, 0x607a, 0x00, domain, NULL);
-    offset[slave_index].target_torque   = (unsigned int)-1;  /* 不映射 0x6071 */
-    offset[slave_index].target_velocity  = (unsigned int)-1;
-    offset[slave_index].torque_offset    = (unsigned int)-1;
+    offset[slave_index].target_velocity =
+        ecrt_slave_config_reg_pdo_entry(slave, 0x60ff, 0x00, domain, NULL);
+    offset[slave_index].target_torque =
+        ecrt_slave_config_reg_pdo_entry(slave, 0x6071, 0x00, domain, NULL);
+    offset[slave_index].torque_offset =
+        ecrt_slave_config_reg_pdo_entry(slave, 0x60b2, 0x00, domain, NULL);
 
     offset[slave_index].status_word =
         ecrt_slave_config_reg_pdo_entry(slave, 0x6041, 0x00, domain, NULL);
@@ -90,15 +97,22 @@ static int pdo_set_configure_rw_template_csp_no_torque(ec_slave_config_t *slave,
 
     if ((int)offset[slave_index].control_word < 0 ||
         (int)offset[slave_index].target_position < 0 ||
+        (int)offset[slave_index].target_velocity < 0 ||
+        (int)offset[slave_index].target_torque < 0 ||
         (int)offset[slave_index].status_word < 0) {
         printf("从站 %d: PDO 条目注册失败（offset 为负）\n", slave_index);
         return -1;
     }
 
-    printf("为伺服从站 %d 配置的PDO映射(CSP 仅位置，无 0x6071):\n", slave_index);
-    printf("  控制字: %d  运行模式: %d  目标位置: %d\n",
-           (int)offset[slave_index].control_word, (int)offset[slave_index].mode_of_operation,
-           (int)offset[slave_index].target_position);
+    printf("为伺服从站 %d 配置的PDO映射(CSP 扩展: 6040+6060+607A+60FF+6071+60B2 / 6041+6061+6064+606C+6077):\n",
+           slave_index);
+    printf("  控制字: %d  运行模式: %d  目标位置: %d  目标速度(0x60FF): %d  目标转矩(0x6071): %d  转矩偏移(0x60B2): %d\n",
+           (int)offset[slave_index].control_word,
+           (int)offset[slave_index].mode_of_operation,
+           (int)offset[slave_index].target_position,
+           (int)offset[slave_index].target_velocity,
+           (int)offset[slave_index].target_torque,
+           (int)offset[slave_index].torque_offset);
     printf("  状态字: %d  运行模式显示: %d  实际位置: %d  实际转矩: %d\n",
            (int)offset[slave_index].status_word, (int)offset[slave_index].mode_of_operation_display,
            (int)offset[slave_index].position_actual_value, (int)offset[slave_index].torque_actual_value);

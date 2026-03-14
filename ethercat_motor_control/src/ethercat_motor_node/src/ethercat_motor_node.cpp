@@ -28,6 +28,7 @@
 #include "ethercat_motor_node/main.h"
 #include "dro_hg/msg/leg_cmd.hpp"
 #include "dro_hg/msg/leg_state.hpp"
+#include "dro_hg/msg/arm_cmd.hpp"
 
 extern "C" {
 #include "ethercat_motor_node/servo_pdo_set.h"
@@ -63,6 +64,7 @@ public:
         this->declare_parameter<int>("cycle_time_ms", 5);
         this->declare_parameter<bool>("publish_motor_states", true);
         this->declare_parameter<int>("zero_current_update_timeout_ms", 100);
+        this->declare_parameter<int>("arm_cmd_timeout_ms", 100);  // 超时内未收到 /arm_cmd 则不应用，保持目标=实际（保持不动）
         // dq 低通滤波系数，支持 ROS2 parameter reconfigure，范围 [0,1]，1.0 表示不过滤
         {
             rcl_interfaces::msg::ParameterDescriptor desc;
@@ -80,6 +82,7 @@ public:
         cycle_time_ms_ = this->get_parameter("cycle_time_ms").as_int();
         publish_states_ = this->get_parameter("publish_motor_states").as_bool();
         zero_current_update_timeout_ms_ = this->get_parameter("zero_current_update_timeout_ms").as_int();
+        arm_cmd_timeout_ms_ = this->get_parameter("arm_cmd_timeout_ms").as_int();
         dq_lowpass_alpha_ = this->get_parameter("dq_lowpass_alpha").as_double();
         temperature_limit_deg_ = this->get_parameter("temperature_limit_deg").as_int();
 
@@ -124,8 +127,13 @@ public:
         leg_cmd_sub_ = this->create_subscription<dro_hg::msg::LegCmd>(
             "leg_cmd", 10,
             std::bind(&EthercatMotorNode::leg_cmd_callback, this, std::placeholders::_1));
+
+        // 订阅上位机手臂控制指令（/arm_cmd），复用 cst_toggle.sh / igh_ethercat_node 的话题与计算路径
+        arm_cmd_sub_ = this->create_subscription<dro_hg::msg::ArmCmd>(
+            "arm_cmd", 10,
+            std::bind(&EthercatMotorNode::arm_cmd_callback, this, std::placeholders::_1));
         
-        RCLCPP_INFO(this->get_logger(), "Subscribed to /leg_cmd (dro_hg), publishing /leg_state");
+        RCLCPP_INFO(this->get_logger(), "Subscribed to /leg_cmd and /arm_cmd (dro_hg), publishing /leg_state");
 
         // 初始化 EtherCAT
         if (init_ethercat() != 0)
@@ -164,20 +172,43 @@ public:
 
     ~EthercatMotorNode()
     {
+        RCLCPP_INFO(this->get_logger(), "Shutting down: releasing resources and clearing data...");
+
+        // 1. 取消定时器，避免退出过程中回调继续执行
+        if (timer_)
+            timer_->cancel();
+        if (zero_current_update_timer_)
+            zero_current_update_timer_->cancel();
+
+        // 2. 停止实时任务循环并等待线程结束
         running_ = false;
         if (rt_thread_.joinable())
         {
             rt_thread_.join();
         }
+
+        // 3. 释放 EtherCAT 主站（会释放 domain 等关联资源）
         if (master)
         {
             ecrt_release_master(master);
+            master = nullptr;
+            domain = nullptr;
+            domain_pd = nullptr;
+            master_state = {};
+            domain_state = {};
         }
+
+        // 4. 清零静态收发缓冲，避免残留数据
+        memset(tx_msg, 0, sizeof(tx_msg));
+        memset(rx_msg, 0, sizeof(rx_msg));
+        memset(rv_motor_msg, 0, sizeof(rv_motor_msg));
+
+        RCLCPP_INFO(this->get_logger(), "EtherCAT master released, buffers cleared, node shutdown complete.");
     }
 
 private:
     // motor_id(1-15) -> slave_idx, passage(1-6)
-    // 电机 ID → 从站/通道：ID 1-6 从站0 通道1-6，ID 7-12 从站2 通道1-6，ID 13-15 从站1 通道1-3
+    // 电机 ID → 从站/通道：按实际接线，从站0=1-6，从站2=7-12，从站1=13-15
     static void motor_id_to_slave_passage(uint16_t motor_id, int& slave_idx, int& passage)
     {
         slave_idx = -1;
@@ -185,6 +216,73 @@ private:
         if (motor_id >= 1 && motor_id <= 6) { slave_idx = 0; passage = static_cast<int>(motor_id); }
         else if (motor_id >= 7 && motor_id <= 12) { slave_idx = 2; passage = static_cast<int>(motor_id - 6); }   // 从站2 通道1-6
         else if (motor_id >= 13 && motor_id <= 15) { slave_idx = 1; passage = static_cast<int>(motor_id - 12); } // 从站1 通道1-3
+    }
+
+    // /arm_cmd 中 q 为弧度，需转换为电机端编码器绝对位置（有符号 16bit：-32768..32767 ↔ -12.5..12.5 rad，与原先脚本发编码器值等效）
+    static constexpr float ArmPosMinRad = -12.5f;
+    static constexpr float ArmPosMaxRad = 12.5f;
+    static constexpr int ArmPosMaxCount = 65535;   // 16bit 满量程
+    static constexpr int32_t ArmEncoderMin = -32768;
+    static constexpr int32_t ArmEncoderMax = 32767;
+
+    static int32_t rad_to_arm_encoder(float q_rad)
+    {
+        float span = ArmPosMaxRad - ArmPosMinRad;
+        if (span <= 0.0f) return 0;
+        double t = (static_cast<double>(q_rad) - ArmPosMinRad) * ArmPosMaxCount / span - 32768.0;  // 有符号，与原先 -5070/30841 等一致
+        if (t < ArmEncoderMin) t = ArmEncoderMin;
+        if (t > ArmEncoderMax) t = ArmEncoderMax;
+        return static_cast<int32_t>(std::round(t));
+    }
+
+    // /arm_cmd → 伺服 3~16 的控制缓存（按 ros2_ws/igh_ethercat_node.cpp 的 motion_data 映射）
+    // 索引 axis = 0..13 映射到从站 slave = SERVO_FIRST + axis (3..16)
+    struct ServoArmCmd
+    {
+        bool valid{false};
+        uint8_t mode{8};              // 对齐 motion_data[i].control_mode
+        int32_t target_position{0};   // 对齐 motion_data[i].target_position
+        int32_t target_velocity{0};   // 对齐 motion_data[i].target_velocity
+        int16_t target_torque{0};     // 对齐 motion_data[i].target_torque
+    };
+
+    void arm_cmd_callback(const dro_hg::msg::ArmCmd::SharedPtr msg)
+    {
+        std::lock_guard<std::mutex> lk(cmd_mutex_);
+
+        const int begin = static_cast<int>(msg->begin);
+        const int end = static_cast<int>(msg->end);
+        // 轴索引 0..13 映射到伺服从站 3..16
+        const int max_axis = SERVO_LAST - SERVO_FIRST + 1;  // 14
+
+        if (begin < 0 || end < 0 || begin > end)
+        {
+            RCLCPP_WARN_THROTTLE(
+                this->get_logger(), *this->get_clock(), 2000,
+                "/arm_cmd: invalid begin/end: %d..%d", begin, end);
+            return;
+        }
+
+        const int clamped_end = std::min(end, max_axis - 1);
+
+        for (int axis = begin; axis <= clamped_end; ++axis)
+        {
+            if (axis >= static_cast<int>(msg->motor_cmd.size()))
+                break;
+
+            const auto& c = msg->motor_cmd[static_cast<size_t>(axis)];
+            const int slave = SERVO_FIRST + axis;  // 3..16
+            if (slave < SERVO_FIRST || slave > SERVO_LAST)
+                continue;
+
+            ServoArmCmd& slot = servo_arm_cmd_[slave];
+            slot.valid = true;
+            slot.mode = static_cast<uint8_t>(c.mode);
+            slot.target_position = rad_to_arm_encoder(static_cast<float>(c.q));  // q 为弧度，转为电机端编码器位置
+            slot.target_velocity = static_cast<int32_t>(c.dq);
+            slot.target_torque = static_cast<int16_t>(c.tau);
+        }
+        last_arm_cmd_ns_.store(std::chrono::steady_clock::now().time_since_epoch().count(), std::memory_order_relaxed);
     }
 
     void leg_cmd_callback(const dro_hg::msg::LegCmd::SharedPtr msg)
@@ -370,7 +468,7 @@ private:
                         ids += (ids.empty() ? "" : ", ") + std::to_string(i + 1);
                 RCLCPP_WARN(this->get_logger(), "电机掉线(连续%d次无反馈)，已进入零力矩模式，停止接收 /leg_cmd，持续零力矩。掉线电机 ID: [%s]", OfflineThreshold, ids.empty() ? "(无)" : ids.c_str());
             }
-            // 正常控制过程中监控电机在线状态：有电机无反馈时限频打印（约 1 秒一次）
+            // 正常控制过程中监控电机在线状态：对应 ID 一直未收到反馈则计数累加，收到则清零；满 OfflineThreshold 次触发零力矩；限频打印约 1 秒一次
             if (offline_detection_enabled_ && !zero_torque_due_to_offline_.load(std::memory_order_relaxed) && (now_s - last_online_status_log_time_) >= 1.0)
             {
                 std::string ids;
@@ -784,6 +882,121 @@ private:
         return true;
     }
 
+    // 将 arm_cmd_callback 写入的缓存下发到 3~16 号伺服的 PDO
+    // 对齐 ros2_ws：ArmCmd 只提供目标位置/速度/模式，CST 模式下的 target_torque 由位置误差计算得到，
+    // 计算逻辑参考 ros2_ws/igh_ethercat/src/motion.c::motion_process_slave_motion_cst。
+    void apply_arm_cmd_to_servos()
+    {
+        if (!all_servos_operation_enabled())
+        {
+            return;
+        }
+        // 仅在“最近收到过 /arm_cmd”时应用其目标；否则不覆盖 PDO，保持状态机写入的 目标=实际（电机保持不动）
+        const int64_t now_ns = static_cast<int64_t>(std::chrono::steady_clock::now().time_since_epoch().count());
+        const int64_t timeout_ns = static_cast<int64_t>(arm_cmd_timeout_ms_) * 1'000'000;
+        if (now_ns - last_arm_cmd_ns_.load(std::memory_order_relaxed) > timeout_ns)
+        {
+            return;
+        }
+
+        for (int axis = 0; axis <= (SERVO_LAST - SERVO_FIRST); ++axis)
+        {
+            const int slave = SERVO_FIRST + axis;  // 3..16
+            const pdo_offset& ofs = servo_offset_[slave];
+            if (ofs.control_word >= INVALID_PDO_OFFSET ||
+                ofs.mode_of_operation >= INVALID_PDO_OFFSET ||
+                ofs.target_position >= INVALID_PDO_OFFSET)
+            {
+                continue;
+            }
+
+            const ServoArmCmd& cmd = servo_arm_cmd_[slave];
+            if (!cmd.valid)
+                continue;
+
+            // 控制字仍由 servo_power_state_machine 负责，这里只写模式和目标值
+
+            // 运行模式：对齐 ArmCmd.mode（8=CSP, 3=CSV, 4=CST 等）
+            EC_WRITE_U8(domain_pd + ofs.mode_of_operation, cmd.mode);
+
+            // 目标位置：cnt（直接采用 ArmCmd.q 映射的绝对期望位置）
+            EC_WRITE_S32(domain_pd + ofs.target_position, cmd.target_position);
+
+            // 目标速度（若模板映射了 0x60FF）
+            if (ofs.target_velocity < INVALID_PDO_OFFSET)
+            {
+                EC_WRITE_S32(domain_pd + ofs.target_velocity, cmd.target_velocity);
+            }
+
+            // 目标转矩（若模板映射了 0x6071）：仅在 CST 模式下按 ros2_ws 的力位混合控制公式计算
+            if (ofs.target_torque < INVALID_PDO_OFFSET)
+            {
+                int16_t tau = 0;
+
+                if (cmd.mode == 4 && servo_is_power_on_[slave])
+                {
+                    // 当前位置 / 实际速度
+                    int32_t pos_current_cnt = 0;
+                    int32_t vel_current_cnt_s = 0;
+                    if (ofs.position_actual_value < INVALID_PDO_OFFSET)
+                        pos_current_cnt = EC_READ_S32(domain_pd + ofs.position_actual_value);
+                    if (ofs.velocity_actual_value < INVALID_PDO_OFFSET)
+                        vel_current_cnt_s = EC_READ_S32(domain_pd + ofs.velocity_actual_value);
+
+                    int32_t pos_desired_cnt = cmd.target_position;
+
+                    // 期望位置等于当前实际位置：目标转矩为 0（保持当前位置，无力矩输出）
+                    if (pos_desired_cnt == pos_current_cnt)
+                    {
+                        tau = 0;
+                    }
+                    else
+                    {
+                        // 当前位置、期望位置转换为角度（度）：cnt / 131072 * 360
+                        const double cnt_per_rev = 131072.0;
+                        double pos_current_deg = static_cast<double>(pos_current_cnt) / cnt_per_rev * 360.0;
+                        double pos_desired_deg = static_cast<double>(pos_desired_cnt) / cnt_per_rev * 360.0;
+
+                        // 角度转弧度
+                        constexpr double kDegToRad = M_PI / 180.0;
+                        double pos_current_rad = pos_current_deg * kDegToRad;
+                        double pos_desired_rad = pos_desired_deg * kDegToRad;
+
+                        // 速度：实际速度为编码器 cnt/s，简单近似直接使用 actual_velocity（cnt/s）
+                        double spd_current = static_cast<double>(vel_current_cnt_s);
+                        double spd_desired = 0.0;
+
+                        // 控制参数（与 ros2_ws/motion_process_slave_motion_cst 完全一致）
+                        const double KP = 10.0;
+                        const double KD = 0.0;
+                        const double Torque = 0.0;
+                        const double Kt = 10.0;
+
+                        double pos_error_rad = (pos_desired_rad - pos_current_rad);
+                        double motor_current = (KP * pos_error_rad
+                                               + KD * (spd_desired - spd_current)
+                                               + Torque) / Kt;
+
+                        // 将计算结果映射到驱动器的目标转矩内部单位
+                        double torque_cmd = motor_current * 2000.0;  // 与 ros2_ws 相同的缩放
+
+                        // 当位置误差足够小(接近目标)时，将目标转矩强制置 0，避免到点仍有残余力矩
+                        if (std::fabs(pos_error_rad) < 0.001)  // 约等于 <0.057 度
+                        {
+                            torque_cmd = 0.0;
+                        }
+                        if (torque_cmd > 200.0) torque_cmd = 200.0;
+                        if (torque_cmd < -200.0) torque_cmd = -200.0;
+
+                        tau = static_cast<int16_t>(torque_cmd);
+                    }
+                }
+
+                EC_WRITE_S16(domain_pd + ofs.target_torque, tau);
+            }
+        }
+    }
+
     // 伺服上电状态机（参考 CiA 402 状态机，实现与示例 raw_value 逻辑一致）
     // PDO 偏移量由 ecrt_slave_config_reg_pdo_entry() 在域内分配，与 servo_pdo_set.c 映射一致，按 slave 索引使用即可。
     static void servo_power_state_machine(int slave, int is_on)
@@ -1016,6 +1229,9 @@ private:
                 servo_power_state_machine(s, 1);
             }
 
+            // 将最新的 /arm_cmd 控制量直接下发到 3~16 号伺服 PDO（对齐 ros2_ws 的 ArmCmd → motion_data → PDO 逻辑）
+            apply_arm_cmd_to_servos();
+
             // 每 2s 打印一次 3~16 号伺服的统一调试信息，用于对照 ros2_ws/igh_example.c
             print_servo_unified_debug();
 
@@ -1089,33 +1305,18 @@ private:
 
                 if (OfflineDetectionEnabled)
                 {
-                    // 主站稳定判定：连续 StableCyclesThreshold 个周期 15 个电机均有反馈，再启用在线检测
-                    bool all_15_have_feedback = true;
-                    for (uint16_t mid = 1; mid <= 15; mid++)
-                    {
-                        int slave_idx = -1, passage = 0;
-                        motor_id_to_slave_passage(mid, slave_idx, passage);
-                        if (slave_idx < 0 || slave_idx >= SSC_SLAVE_NUM || passage < 1 || passage > 6)
-                            continue;
-                        if (rv_motor_msg[slave_idx][passage - 1].motor_id == 0)
-                        {
-                            all_15_have_feedback = false;
-                            break;
-                        }
-                    }
-                    if (all_15_have_feedback)
+                    // 运行满 N 个周期后即启用电机在线检测（不再要求“15 个电机均有反馈”，否则部分电机掉线时永远无法启用报警）
+                    if (!offline_detection_enabled_)
                     {
                         stable_cycles_count_++;
-                        if (stable_cycles_count_ >= StableCyclesThreshold && !offline_detection_enabled_)
+                        if (stable_cycles_count_ >= StableCyclesThreshold)
                         {
                             offline_detection_enabled_ = true;
                             RCLCPP_INFO(rclcpp::get_logger("ethercat_motor_node"),
-                                "主站运行稳定（连续 %d 周期收到全部电机数据），已启用电机在线检测，连续 %d 次无反馈将进入零力矩", StableCyclesThreshold, OfflineThreshold);
+                                "已启用电机在线检测（运行 %d 周期），连续 %d 次无反馈将判定掉线并进入零力矩。", StableCyclesThreshold, OfflineThreshold);
                         }
                     }
-                    else
-                        stable_cycles_count_ = 0;
-                    // 根据反馈判断掉线：对应槽位 motor_id==0 表示本周期无反馈
+                    // 根据电机返回数据判断在线：对应槽位 motor_id==0 表示本周期无反馈，累计即判掉线
                     if (offline_detection_enabled_)
                     {
                         for (uint16_t mid = 1; mid <= 15; mid++)
@@ -1147,13 +1348,21 @@ private:
                         const bool first_enter = !zero_torque_due_to_offline_.load(std::memory_order_relaxed);
                         if (first_enter)
                         {
-                            offline_trigger_motor_bits_ = trigger_bits;
+                            // 报警列表与 /leg_state 一致：只列本周期当前无反馈的电机（motor_id==0），不按 trigger_bits，避免 7-12 有数据仍被误报掉线
                             std::string ids;
-                            for (int i = 0; i < 15; i++)
-                                if (trigger_bits & (1u << i))
-                                    ids += (ids.empty() ? "" : ", ") + std::to_string(i + 1);
+                            for (uint16_t mid = 1; mid <= 15; mid++)
+                            {
+                                int slave_idx = -1, passage = 0;
+                                motor_id_to_slave_passage(mid, slave_idx, passage);
+                                if (slave_idx < 0 || slave_idx >= SSC_SLAVE_NUM || passage < 1 || passage > 6)
+                                    continue;
+                                if (rv_motor_msg[slave_idx][passage - 1].motor_id != 0)
+                                    continue;  // 本周期有反馈，视为在线，不列入掉线
+                                ids += (ids.empty() ? "" : ", ") + std::to_string(mid);
+                            }
+                            offline_trigger_motor_bits_ = trigger_bits;
                             RCLCPP_WARN(rclcpp::get_logger("ethercat_motor_node"),
-                                "电机掉线(连续%d次无反馈)，进入零力矩模式，掉线电机 ID: [%s]", OfflineThreshold, ids.c_str());
+                                "电机掉线(连续%d次无反馈)，进入零力矩模式，掉线电机 ID: [%s]", OfflineThreshold, ids.empty() ? "(无)" : ids.c_str());
                         }
                         zero_torque_due_to_offline_.store(true, std::memory_order_relaxed);
                     }
@@ -1282,8 +1491,12 @@ private:
         domain_regs[i] = (ec_pdo_entry_reg_t){0xff};
     }
 
+    // /arm_cmd → 伺服 3~16 控制缓存（按从站索引存，3..16 有效）
+    ServoArmCmd servo_arm_cmd_[PHYSICAL_SLAVE_NUM]{};
+
     rclcpp::Publisher<dro_hg::msg::LegState>::SharedPtr leg_state_pub_;
     rclcpp::Subscription<dro_hg::msg::LegCmd>::SharedPtr leg_cmd_sub_;
+    rclcpp::Subscription<dro_hg::msg::ArmCmd>::SharedPtr arm_cmd_sub_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::TimerBase::SharedPtr zero_current_update_timer_;
     rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr param_callback_handle_;
@@ -1292,8 +1505,10 @@ private:
     int cycle_time_ms_;
     bool publish_states_;
     int zero_current_update_timeout_ms_;
+    int arm_cmd_timeout_ms_{100};   // /arm_cmd 超时(ms)，超时内未收到则不应用，保持目标=实际
     double dq_lowpass_alpha_{1.0};  // dq 速度低通滤波系数 [0,1]，1 表示不过滤
     std::atomic<int64_t> last_leg_cmd_ns_{0};
+    std::atomic<int64_t> last_arm_cmd_ns_{0};
     bool running_;
     std::atomic<bool> ec_first_cycle_done_{false};  // 至少一次 EC 周期后再发布状态
     // 从站掉线检测：预期 PHYSICAL_SLAVE_NUM 个从站，主站 slaves_responding 持续低于则进入零力矩
@@ -1306,10 +1521,10 @@ private:
     // 电机掉线检测：主站运行稳定（连续收到所有电机数据）后启用（设为 false 可屏蔽整个机制）
     static constexpr bool OfflineDetectionEnabled = true;   // 设为 false 可屏蔽掉线检测
     static constexpr int StableCyclesThreshold = 50;  // 连续 N 个周期 15 个电机均有反馈，认为主站稳定
-    static constexpr int OfflineThreshold = 100;       // 连续 N 个周期无反馈则判为掉线，进入零力矩
+    static constexpr int OfflineThreshold = 1000;       // 连续 N 个周期无反馈则判为掉线，进入零力矩
     int stable_cycles_count_{0};  // 当前连续“15 个电机均有反馈”的周期数
     bool offline_detection_enabled_{false};           // 主站稳定后为 true，才进行掉线判断
-    uint8_t motor_offline_count_[15]{};              // 电机 1-15 连续无反馈的周期数（index 0 = 电机 1）
+    uint16_t motor_offline_count_[15]{};             // 电机 1-15 连续无反馈的周期数，一直累加直到收到对应 ID 或达到 OfflineThreshold
     std::atomic<bool> zero_torque_due_to_offline_{false};  // 因掉线进入零力矩模式
     uint32_t offline_trigger_motor_bits_{0};  // 进入零力矩时触发的掉线电机 ID 位图（bit i = 电机 i+1），用于持续报警时打印
     double last_offline_log_time_{0};  // 上次打印掉线信息的时间（限频）

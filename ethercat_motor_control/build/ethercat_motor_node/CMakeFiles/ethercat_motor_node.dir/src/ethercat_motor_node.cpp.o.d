@@ -681,4 +681,9 @@ CMakeFiles/ethercat_motor_node.dir/src/ethercat_motor_node.cpp.o: \
  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_state__traits.hpp \
  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/motor_state__traits.hpp \
  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/leg_state__type_support.hpp \
+ /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/arm_cmd.hpp \
+ /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__struct.hpp \
+ /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__builder.hpp \
+ /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__traits.hpp \
+ /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/install/dro_hg/include/dro_hg/dro_hg/msg/detail/arm_cmd__type_support.hpp \
  /home/p30039115276/ECS_TK_IGH/ethercat_motor_control/src/ethercat_motor_node/include/ethercat_motor_node/servo_pdo_set.h

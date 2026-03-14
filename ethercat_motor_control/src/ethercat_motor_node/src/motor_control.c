@@ -784,28 +784,28 @@ static void handle_response_mode(Motor_Msg* motor_data, OD_Motor_Msg* motor_msg,
     if (print) Rv_Message_Print(ack_status, motor_msg);
 }
 
-static void handle_automatic_mode(Motor_Msg* motor_data, OD_Motor_Msg motor_msg[6], int print)
+/* 按 PDO 槽位写入，与 RV_can_data_repack 的 slave/channel 一致，避免电机 13~15 的 motor_id_t=8,9,10 越界 motor_msg[6] */
+static void handle_automatic_mode(Motor_Msg* motor_data, OD_Motor_Msg* motor_msg, int print)
 {
-    int motor_id_t = motor_data->id - 0x205;
     uint16_t motor_id = (uint16_t)(motor_data->id - 0x204); /* CAN id 0x205..0x213 对应电机 ID 1..15 */
     const MotorParams* p = get_motor_params(motor_id);
 
-    motor_msg[motor_id_t].motor_id = motor_data->id;
-    motor_msg[motor_id_t].angle_actual_int = (uint16_t)(motor_data->data[0] << 8 | motor_data->data[1]);
-    motor_msg[motor_id_t].speed_actual_int = (int16_t)(motor_data->data[2] << 8 | motor_data->data[3]);
-    motor_msg[motor_id_t].current_actual_int = (motor_data->data[4] << 8 | motor_data->data[5]);
-    motor_msg[motor_id_t].temperature = motor_data->data[6];
-    motor_msg[motor_id_t].error = motor_data->data[7];
+    motor_msg->motor_id = motor_data->id;
+    motor_msg->angle_actual_int = (uint16_t)(motor_data->data[0] << 8 | motor_data->data[1]);
+    motor_msg->speed_actual_int = (int16_t)(motor_data->data[2] << 8 | motor_data->data[3]);
+    motor_msg->current_actual_int = (motor_data->data[4] << 8 | motor_data->data[5]);
+    motor_msg->temperature = motor_data->data[6];
+    motor_msg->error = motor_data->data[7];
 
-    /* 自动反馈模式下也填充 rad/float，供 /low_state 的 q、dq、tau_est 使用 */
-    motor_msg[motor_id_t].angle_actual_rad = uint_to_float(
-        (int)motor_msg[motor_id_t].angle_actual_int, p->pos_min, p->pos_max, 16);
+    /* 自动反馈模式下也填充 rad/float，供 /leg_state 的 q、dq、current 使用 */
+    motor_msg->angle_actual_rad = uint_to_float(
+        (int)motor_msg->angle_actual_int, p->pos_min, p->pos_max, 16);
     /* int16 映射到 [spd_min, spd_max] */
-    motor_msg[motor_id_t].speed_actual_rad = p->spd_min +
-        ((float)(motor_msg[motor_id_t].speed_actual_int + 32768) / 65535.0f) * (p->spd_max - p->spd_min);
-    motor_msg[motor_id_t].current_actual_float = motor_msg[motor_id_t].current_actual_int / 100.0f;
+    motor_msg->speed_actual_rad = p->spd_min +
+        ((float)(motor_msg->speed_actual_int + 32768) / 65535.0f) * (p->spd_max - p->spd_min);
+    motor_msg->current_actual_float = motor_msg->current_actual_int / 100.0f;
 
-    if (print) Rv_Message_Print(6, &motor_msg[motor_id_t]);
+    if (print) Rv_Message_Print(6, motor_msg);
 }
 
 uint16_t motor_id_check = 0;
@@ -830,7 +830,7 @@ void RV_can_data_repack(EtherCAT_Msg* rx_msg, uint8_t comm_mode, OD_Motor_Msg mo
         }
         else if (comm_mode == 0x01 && rx_msg->motor[i].dlc != 0) // automatic feedback mode
         {
-            handle_automatic_mode(&rx_msg->motor[i], motor_msg, print);
+            handle_automatic_mode(&rx_msg->motor[i], &motor_msg[i], print);
         }
     }
 }
