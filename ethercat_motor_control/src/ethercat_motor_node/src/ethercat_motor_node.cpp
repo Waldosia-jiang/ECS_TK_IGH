@@ -37,10 +37,10 @@ extern "C" {
 
 // SSC 网关从站数量（Beckhoff AX58100）
 #define SSC_SLAVE_NUM 3
-// 物理从站总数（0~16，共 17 个，从站 3~16 为伺服）
-#define PHYSICAL_SLAVE_NUM 17
-#define SERVO_FIRST 3
-#define SERVO_LAST 16
+// 物理从站总数：0,1,2=SSC 网关，3=JC06-hub 分支器（仅连接），4~17=泰科伺服（14 个），18=分支器 Dev A
+#define PHYSICAL_SLAVE_NUM 19
+#define SERVO_FIRST 4
+#define SERVO_LAST 17
 
 #define AnaInSlavePos 0, 0
 
@@ -241,8 +241,8 @@ private:
         return static_cast<int32_t>(std::round(t));
     }
 
-    // /arm_cmd → 伺服 3~16 的控制缓存（按 ros2_ws/igh_ethercat_node.cpp 的 motion_data 映射）
-    // 索引 axis = 0..13 映射到从站 slave = SERVO_FIRST + axis (3..16)
+    // /arm_cmd → 伺服 4~17 的控制缓存（按 ros2_ws/igh_ethercat_node.cpp 的 motion_data 映射，拓扑中 3 为分支器）
+    // 索引 axis = 0..13 映射到从站 slave = SERVO_FIRST + axis (4..17)
     struct ServoArmCmd
     {
         bool valid{false};
@@ -260,7 +260,7 @@ private:
 
         const int begin = static_cast<int>(msg->begin);
         const int end = static_cast<int>(msg->end);
-        // 轴索引 0..13 映射到伺服从站 3..16
+        // 轴索引 0..13 映射到伺服从站 4..17
         const int max_axis = SERVO_LAST - SERVO_FIRST + 1;  // 14
 
         if (begin < 0 || end < 0 || begin > end)
@@ -279,7 +279,7 @@ private:
                 break;
 
             const auto& c = msg->motor_cmd[static_cast<size_t>(axis)];
-            const int slave = SERVO_FIRST + axis;  // 3..16
+            const int slave = SERVO_FIRST + axis;  // 4..17
             if (slave < SERVO_FIRST || slave > SERVO_LAST)
                 continue;
 
@@ -297,7 +297,7 @@ private:
 
     void leg_cmd_callback(const dro_hg::msg::LegCmd::SharedPtr msg)
     {
-        // 只有当 3~16 号伺服全部进入 Operation enabled（状态字低 8 位 == 0x37）时，才响应上层力矩/位置指令
+        // 只有当 4~17 号伺服全部进入 Operation enabled（状态字低 8 位 == 0x37）时，才响应上层力矩/位置指令
         if (!all_servos_operation_enabled())
         {
             RCLCPP_WARN_THROTTLE(
@@ -582,13 +582,13 @@ private:
         arm_state_msg.motor_state.reserve(14);
         for (int axis = 0; axis <= (SERVO_LAST - SERVO_FIRST); ++axis)
         {
-            const int slave = SERVO_FIRST + axis;  // 3..16
+            const int slave = SERVO_FIRST + axis;  // 4..17
             if (slave < SERVO_FIRST || slave > SERVO_LAST)
                 continue;
             const ServoArmCmd& cmd = servo_arm_cmd_[slave];
             dro_hg::msg::MotorState st_arm;
             st_arm.mode = cmd.valid ? cmd.mode : static_cast<uint8_t>(8);  // 当前运行模式，无命令时默认 8
-            st_arm.num = static_cast<uint8_t>(slave - SERVO_FIRST);        // 发布时站号减 3，即 0..13
+            st_arm.num = static_cast<uint8_t>(slave - SERVO_FIRST);        // 发布时站号减 SERVO_FIRST，即 0..13
             // 编码器位置 cnt → 弧度（与统一调试“实际”同源：q_rad * 131072/2π ≈ 实际编码器值）
             st_arm.q = static_cast<float>((static_cast<double>(arm_servo_pos_cnt_[axis]) / cnt_per_rev_arm) * two_pi);
             // 编码器速度 cnt/s → 弧度/秒（静止时驱动器常回 0，运动时应有非零；若驱动器用 0.01rpm 等单位需按手册换算）
@@ -722,8 +722,8 @@ private:
             }
         }
 
-        // 为 3~16 号泰科伺服添加 PDO 配置并注册 PDO 偏移（使用 ros2_ws 的 RW 模板实现）
-        for (int slave = 3; slave <= 16; ++slave)
+        // 为 4~17 号泰科伺服添加 PDO 配置并注册 PDO 偏移（3 号为分支器不配置，使用 ros2_ws 的 RW 模板实现）
+        for (int slave = SERVO_FIRST; slave <= SERVO_LAST; ++slave)
         {
             ec_slave_info_t info{};
             if (ecrt_master_get_slave(master, slave, &info) != 0)
@@ -812,7 +812,7 @@ private:
                         o.mode_of_operation);
         }
 
-        // 注册网关 0/1/2 的 PDO 到域（域内顺序：先伺服 3~16，后网关，与当前 17 从站拓扑一致）
+        // 注册网关 0/1/2 的 PDO 到域（域内顺序：先伺服 4~17，后网关，与当前 19 从站拓扑一致，3/18 为分支器）
         if (ecrt_domain_reg_pdo_entry_list(domain, domain_regs_in))
         {
             RCLCPP_ERROR(this->get_logger(), "PDO entry registration failed!");
@@ -918,7 +918,7 @@ private:
         }
     }
 
-    // 判断 3~16 号伺服是否全部进入 Operation enabled（状态字低 8 位 == 0x37）
+    // 判断 4~17 号伺服是否全部进入 Operation enabled（状态字低 8 位 == 0x37）
     static bool all_servos_operation_enabled()
     {
         for (int s = SERVO_FIRST; s <= SERVO_LAST; ++s)
@@ -931,7 +931,7 @@ private:
         return true;
     }
 
-    // 将 arm_cmd_callback 写入的缓存下发到 3~16 号伺服的 PDO
+    // 将 arm_cmd_callback 写入的缓存下发到 4~17 号伺服的 PDO
     // 对齐 ros2_ws：ArmCmd 只提供目标位置/速度/模式，CST 模式下的 target_torque 由位置误差计算得到，
     // 计算逻辑参考 ros2_ws/igh_ethercat/src/motion.c::motion_process_slave_motion_cst。
     void apply_arm_cmd_to_servos()
@@ -950,7 +950,7 @@ private:
 
         for (int axis = 0; axis <= (SERVO_LAST - SERVO_FIRST); ++axis)
         {
-            const int slave = SERVO_FIRST + axis;  // 3..16
+            const int slave = SERVO_FIRST + axis;  // 4..17
             const pdo_offset& ofs = servo_offset_[slave];
             if (ofs.control_word >= INVALID_PDO_OFFSET ||
                 ofs.mode_of_operation >= INVALID_PDO_OFFSET ||
@@ -1059,7 +1059,7 @@ private:
         uint16_t sw_raw = EC_READ_U16(domain_pd + ofs.status_word);              // 0x6041 原始状态字（16 位）
         uint16_t raw_value = static_cast<uint16_t>(sw_raw & 0x00ff);             // 仅保留低 8 位（用于故障低 4 位判断）
 
-        // 状态字变化时打印一次（用于调试 3~16 号伺服）
+        // 状态字变化时打印一次（用于调试 4~17 号伺服）
         if (raw_value != servo_status_word_[slave])
         {
             servo_status_word_[slave] = raw_value;
@@ -1271,7 +1271,7 @@ private:
 
             ethercat_data_get();
 
-            // 伺服 3~16 状态机（上电 + 故障处理）
+            // 伺服 4~17 状态机（上电 + 故障处理）
             for (int s = SERVO_FIRST; s <= SERVO_LAST; s++)
             {
                 if (servo_offset_[s].status_word >= INVALID_PDO_OFFSET)
@@ -1279,10 +1279,10 @@ private:
                 servo_power_state_machine(s, 1);
             }
 
-            // 将最新的 /arm_cmd 控制量直接下发到 3~16 号伺服 PDO（对齐 ros2_ws 的 ArmCmd → motion_data → PDO 逻辑）
+            // 将最新的 /arm_cmd 控制量直接下发到 4~17 号伺服 PDO（对齐 ros2_ws 的 ArmCmd → motion_data → PDO 逻辑）
             apply_arm_cmd_to_servos();
 
-            // 每 2s 打印一次 3~16 号伺服的统一调试信息，用于对照 ros2_ws/igh_example.c
+            // 每 2s 打印一次 4~17 号伺服的统一调试信息，用于对照 ros2_ws/igh_example.c
             print_servo_unified_debug();
 
             check_domain_state();
@@ -1412,7 +1412,7 @@ private:
                                 trigger_bits |= (1u << i);
                             }
                     }
-                    // 复制 3~16 号伺服编码器位置/速度/实际转矩供 /arm_state 发布（与统一调试“实际”同源，在 state_mutex_ 下与 publish 一致）
+                    // 复制 4~17 号伺服编码器位置/速度/实际转矩供 /arm_state 发布（与统一调试“实际”同源，在 state_mutex_ 下与 publish 一致）
                     for (int axis = 0; axis <= (SERVO_LAST - SERVO_FIRST); ++axis)
                     {
                         const int slave = SERVO_FIRST + axis;
@@ -1492,7 +1492,7 @@ private:
     static PDO_Struct pdo_struct[SSC_SLAVE_NUM];
     static ec_pdo_entry_reg_t domain_regs_in[68 * 2 * SSC_SLAVE_NUM + 1];
 
-    // 伺服 3~16 的 PDO 偏移与状态机状态（参考 ros2_ws/igh_ethercat motion.c）
+    // 伺服 4~17 的 PDO 偏移与状态机状态（参考 ros2_ws/igh_ethercat motion.c）
     static pdo_offset servo_offset_[MAX_SLAVE_NUMBER];
     static uint16_t servo_status_word_[PHYSICAL_SLAVE_NUM];
     static uint8_t servo_is_power_on_[PHYSICAL_SLAVE_NUM];
@@ -1572,7 +1572,7 @@ private:
         domain_regs[i] = (ec_pdo_entry_reg_t){0xff};
     }
 
-    // /arm_cmd → 伺服 3~16 控制缓存（按从站索引存，3..16 有效）
+    // /arm_cmd → 伺服 4~17 控制缓存（按从站索引存，4..17 有效）
     ServoArmCmd servo_arm_cmd_[PHYSICAL_SLAVE_NUM]{};
 
     rclcpp::Publisher<dro_hg::msg::LegState>::SharedPtr leg_state_pub_;
@@ -1626,7 +1626,7 @@ private:
     // dq 低通滤波历史值：按从站/通道存储
     float last_dq_filtered_[SSC_SLAVE_NUM][6]{};
     double last_publish_time_{0.0};
-    // 手臂伺服 3~16 编码器反馈与实际转矩（在 RT 线程 state_mutex_ 下写入，供 /arm_state 发布，与统一调试“实际/实际转矩”同源）
+    // 手臂伺服 4~17 编码器反馈与实际转矩（在 RT 线程 state_mutex_ 下写入，供 /arm_state 发布，与统一调试“实际/实际转矩”同源）
     int32_t arm_servo_pos_cnt_[14]{};
     int32_t arm_servo_vel_cnt_s_[14]{};
     int16_t arm_servo_torque_actual_[14]{};
